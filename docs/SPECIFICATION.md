@@ -6,6 +6,8 @@
 
 ## 1. Artifacts and versions
 
+The desktop Studio and phone Pocket apps ship together as application v0.2.0 and implement this same Core 0.1 contract. The phone renders table definitions as cards; its installation metadata and offline cache are host features, not package fields. See [mobile behavior and storage](MOBILE.md).
+
 A package is one UTF-8 JSON document, conventionally named `name.udi.json`. The current `specVersion` MUST be `"0.1"`. `metadata.version` is a separate semantic-version-shaped package release string. The local revision counter is an instance editing mechanism and is not exported as a package release version.
 
 Import MUST reject documents larger than 65,536 UTF-8 bytes, unknown format versions, unknown fields, malformed JSON, and violations of [udi.schema.json](../spec/udi.schema.json). The reference implementation does not migrate older formats. Maximum collections and text lengths are defined by the schema.

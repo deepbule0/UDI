@@ -26,13 +26,15 @@ The prototype's host, policy code, and fixture data share a browser process. A u
 
 ## Credentials and network behavior
 
-The static demo has no account credentials, analytics, external connector calls, or background workers. Fonts are bundled. The optional development bridge accepts a definition and intent and sends them to Ollama at `127.0.0.1:11434`; records, local notes, binding IDs, and grants are not part of its request contract. Free-text intent and metadata may still be sensitive. The bridge has no remote-model fallback and cannot receive a caller-supplied model endpoint.
+The static demo has no account credentials, analytics, external connector calls, or background account automation. Its production service worker caches public app assets for offline use. Fonts are bundled. The optional development bridge accepts a definition and intent and sends them to Ollama at `127.0.0.1:11434`; records, local notes, binding IDs, and grants are not part of its request contract. Free-text intent and metadata may still be sensitive. The bridge has no remote-model fallback and cannot receive a caller-supplied model endpoint.
 
 The optional model is a dependency managed by the person running it. Transport validation tests do not establish model behavior or protection against a compromised local runtime.
 
 ## Persistence and audit
 
 The app stores its state under `udi-studio:0.1` in browser local storage. Reset clears this app's demo state. No data is encrypted by the application. The local activity log is bounded and editable, not a tamper-resistant audit trail. Undo restores interface definitions; it does not revoke capabilities or reverse effects. Two tabs can overwrite each other's persisted state.
+
+The phone PWA's service worker is scoped to its deployment directory and caches the public build, including bundled fictional fixtures; it does not cache API responses or use the cache to store local grants, notes, or imported definitions. Those remain in local storage. Home Screen installation and offline availability add no authorization boundary. A cached build may remain older until updated, and browser storage can be cleared or evicted. Resetting the demo does not remove the service-worker cache; clearing site data removes local state and cached assets. The desktop and phone routes share state only within the same origin and storage context, and an iPhone Home Screen app is isolated from Safari. There is no device synchronization. See the [phone guide](docs/MOBILE.md).
 
 ## Before production use
 

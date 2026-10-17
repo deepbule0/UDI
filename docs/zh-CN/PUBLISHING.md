@@ -13,6 +13,8 @@
 - Topics：`generative-ui`、`human-computer-interaction`、`end-user-programming`、`ai-agents`、`declarative-ui`、`personal-software`。
 - 已提供许可证：原创代码与文档使用 MIT；请项目所有者在发布前审阅。
 - 首个公开发布标签：`v0.1.0`。
+- 当前手机演示版本：`v0.2.0`；界面包格式仍为 Core `0.1`。
+- 手机演示：`https://deepbule0.github.io/UDI/mobile.html`，通过 `?lang=zh-CN` 或 `?lang=en` 选择语言。
 
 添加作者元数据或引用文件时，请使用真实姓名和实际机构信息。项目没有虚构作者身份。发布者应为仓库配置私密安全报告渠道。
 
@@ -25,6 +27,7 @@ npm ci
 npm run check
 npx playwright install chromium
 npm run test:e2e
+npm run test:pwa
 npm run evaluate
 ```
 
@@ -56,6 +59,8 @@ git push -u github HEAD:main
 当 GitHub 托管的 Actions 运行器可用时，附带的 **Deploy demo to Pages** 工作流可作为另一种部署方式。使用时，在 Settings → Pages 中将来源改为 GitHub Actions，再手动触发工作流。只有确认该方式能够完成部署后，才应切换线上来源。分支发布不能替代源码校验工作流，也不能证明 CI 已运行。
 
 公开的静态演示仅使用离线解析器。可选的本地模型桥接服务用于本地开发，不应作为生产 API 对外暴露。请在 [GitHub Actions 运行记录](https://github.com/deepbule0/UDI/actions)中查看实际 CI 和部署结果，并在确认部署成功后再报告演示已上线。
+
+请发布完整的 `dist/` 产物，包括 `mobile.html`、`manifest.webmanifest`、`sw.js`、`icons/` 和带哈希的资源文件，不要只部署桌面 HTML。应在实际 `/UDI/` 子路径下验证两个手机语言链接，等待 Service Worker 就绪后再测试离线。更新期间保留旧的哈希资源，让已打开的页面能够完成加载。发布时同步更新中英文 README、手机指南、发布说明、截图和现有预览，并保留历史版本标签。
 
 ## 发布说明
 

@@ -6,21 +6,33 @@
 
 **由你定义的软件。**
 
-[演示：简体中文](https://deepbule0.github.io/UDI/?lang=zh-CN) · [Demo: English](https://deepbule0.github.io/UDI/?lang=en) · [阅读中文提案](docs/zh-CN/POSITION-PAPER.md)
+桌面：[简体中文](https://deepbule0.github.io/UDI/?lang=zh-CN) · [English](https://deepbule0.github.io/UDI/?lang=en) · 手机：[简体中文](https://deepbule0.github.io/UDI/mobile.html?lang=zh-CN) · [English](https://deepbule0.github.io/UDI/mobile.html?lang=en) · [阅读中文提案](docs/zh-CN/POSITION-PAPER.md)
 
-**验证状态：** 2026 年 10 月 17 日的本地检查通过了 70 项单元测试和 10 个浏览器场景。GitHub 托管的验证尚未成功运行。[验证证据](docs/zh-CN/EVALUATION.md) · [GitHub Actions 状态](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)。
+**验证状态：** 2026 年 10 月 17 日的本地检查通过了 70 项单元测试、19 个浏览器场景和 3 项生产 PWA 检查。GitHub 托管的验证尚未成功运行。[验证证据](docs/zh-CN/EVALUATION.md) · [GitHub Actions 状态](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)。
 
 UDI 是一项面向持久化个人软件的设计提案及参考原型。用户描述自己希望如何工作；智能体提出结构化的界面定义；运行时对定义进行校验，并结合当前实例绑定的数据和明确授予的能力，将其渲染为可用界面。
 
 复用的单位是**界面包（interface package）**，而不是某个人工作区的副本。界面包描述视图、逻辑数据源、能力请求和操作；每次安装则分别提供自己的数据绑定、授权和执行历史。
 
-**状态：实验性版本 v0.1.0。** 本仓库包含可运行的浏览器原型和规范草案，尚不构成生产级安全系统或已确立的标准。
+**状态：实验性版本 v0.2.0。** 此版本新增可安装的手机网页应用，继续使用 **0.1** 版 UDI 界面包格式。本仓库包含可运行的浏览器原型和规范草案，尚不构成生产级安全系统或已确立的标准。
 
 **术语说明：** “user-defined interface”这一表述及其缩写 **UDI** 已出现于 Wixon、Whiteside、Good 和 Jones 在 CHI 1983 发表的论文 [Building a User-Defined Interface](https://michaelgood.info/publications/usability/building-a-user-defined-interface/) 中。本项目沿用这一术语，描述本文提出的、由智能体参与的界面生命周期，不主张对名称的首创权。
 
 ![UDI Studio 中文界面：包含意图编辑器、实验表格、模型对比和截止日期的研究工作区](docs/assets/udi-studio.zh-CN.png)
 
-## 试用
+## 手机应用演示
+
+用手机打开 [UDI Pocket](https://deepbule0.github.io/UDI/mobile.html?lang=zh-CN)。它采用卡片、底部导航和审核面板，与桌面应用共享界面包、校验、权限及操作确认的生命周期。这是可安装的渐进式网页应用（PWA），未提供 App Store 或 Google Play 安装包。
+
+1. 在**首页**浏览实验卡片。打开**塑造**，选择**只显示失败实验**，检查提案后点击**应用更改**。
+2. 在**数据**中切换虚构数据集并检查授权。添加本地笔记操作后，仍需授予 `notes.write`，预览确切内容并单独确认。
+3. 在**分享**中检查或迁移界面定义。导出的界面包不包含记录、授权、笔记或历史。
+
+通过手机浏览器的安装菜单添加到主屏幕。顶部 **?** 按钮可打开**关于与安装**。首次成功联网加载后，请等待**可离线使用**提示，再依赖内置演示的离线功能。Android/iPhone 安装、离线行为和存储限制见[手机使用指南](docs/zh-CN/MOBILE.md)。不同设备不会自动同步；iPhone 主屏幕网页应用与 Safari 的存储也相互独立。
+
+<img src="docs/assets/udi-mobile.zh-CN.png" width="340" alt="UDI Pocket 中文首页：研究卡片与底部导航" />
+
+## 本地运行
 
 需要 Node.js **22.12+** 和 npm。
 
@@ -31,7 +43,7 @@ npm ci
 npm run dev
 ```
 
-打开 Vite 输出的本地网址即可。无需 API 密钥或账号。默认规划器是一个**能力有限的确定性意图解析器**，界面中会明确标示。应用内置两组虚构数据，没有连接真实账号。字体随应用一起提供。
+打开 Vite 输出的本地网址即可进入桌面应用；在网址后添加 `/mobile.html?lang=zh-CN` 可进入手机应用。无需 API 密钥或账号。默认规划器是一个**能力有限的确定性意图解析器**，界面中会明确标示。应用内置两组虚构数据，没有连接真实账号。字体随应用一起提供。
 
 演示中可通过 **EN / 中文** 切换语言。语言切换只影响显示，不修改界面包定义、数据绑定或已授予的能力。离线解析器同时接受英语和支持范围内的中文指令。
 
@@ -67,6 +79,7 @@ flowchart LR
 - 可审核的[修订提案](src/core/planner.ts)：精确检查基础状态，以原子方式应用变更，并支持在界面中撤销。
 - 经过确认的本地笔记创建：预览与实例、修订版本、定义和确切载荷绑定；执行时再次检查授权与源数据。
 - 仅包含定义的导出与导入、本地派生副本、两组相互独立的数据集绑定，以及可复现的校验和浏览器测试。
+- 中英双语手机 PWA：卡片视图、底部导航、离线应用缓存，以及同一套修订审核和操作检查。
 - 一篇[立场论文](docs/zh-CN/POSITION-PAPER.md)、[相关工作分析](docs/zh-CN/RELATED-WORK.md)、[威胁模型](docs/zh-CN/SECURITY.md)和[评估计划](docs/zh-CN/EVALUATION.md)。
 
 这是一项关于系统整合与生命周期的提案。生成式界面、声明式渲染、终端用户编程和能力管控都已有大量先行工作。UDI 不主张发明了这些技术。
@@ -100,17 +113,18 @@ flowchart LR
 | [MCP Apps](https://github.com/modelcontextprotocol/ext-apps) | 由工具提供、嵌入宿主的界面资源 | 可作为候选宿主或集成入口 |
 | [json-render](https://github.com/vercel-labs/json-render) | 基于组件目录约束的界面生成与渲染器 | 可替代本原型的小型渲染器 |
 
-以上比较描述各项目的侧重点，不意味着这些项目无法支持持久化、权限或界面包复用。v0.1 没有提供互操作适配器。详见[来源与边界](docs/zh-CN/RELATED-WORK.md)。
+以上比较描述各项目的侧重点，不意味着这些项目无法支持持久化、权限或界面包复用。v0.2 没有提供互操作适配器。详见[来源与边界](docs/zh-CN/RELATED-WORK.md)。
 
 ## 已实现与拟开展的工作
 
-| v0.1 已实现 | 拟开展的工作 |
+| v0.2 已实现 | 拟开展的工作 |
 | --- | --- |
 | 五种组件类型和范围受限的修订操作 | 通用工作流 DSL 与不依赖特定领域的组件目录 |
 | 本地预置数据绑定和权限控制 | 持有凭证的连接器网关与真实服务 |
 | 离线解析器；可选的本地模型桥接服务 | 经过评估的模型规划器及修复策略 |
 | 本地持久化、导出与导入、派生副本、撤销 | 签名界面包、迁移、注册表与社区治理 |
 | 单用户状态与本地活动历史 | 多用户并发与防篡改审计存储 |
+| 可安装的手机 PWA 和缓存的虚构演示 | 原生应用商店版本、设备同步及真实手机连接器 |
 
 预置数据和策略代码都位于浏览器中。控制浏览器的人可以绕过本地检查。导出会排除结构化的实例字段，但**不会**检测被写入标题或描述的私人信息。本原型不支持不受信任的自定义代码、任意 URL、后台自动化或不可逆的外部操作。
 
@@ -120,6 +134,7 @@ flowchart LR
 npm run check                 # 类型检查、核心测试、生产构建
 npx playwright install chromium
 npm run test:e2e              # 浏览器验收场景
+npm run test:pwa              # 生产 Service Worker 与离线场景
 npm run evaluate              # 范围受限的确定性符合性用例
 ```
 

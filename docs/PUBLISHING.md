@@ -12,6 +12,8 @@ The public repository is [deepbule0/UDI](https://github.com/deepbule0/UDI). It i
 - Topics: `generative-ui`, `human-computer-interaction`, `end-user-programming`, `ai-agents`, `declarative-ui`, `personal-software`.
 - License supplied: MIT for original code/documentation; review it as the project owner before publication.
 - Initial public release tag: `v0.1.0`.
+- Current phone release: `v0.2.0`; package schema remains Core `0.1`.
+- Phone demo: `https://deepbule0.github.io/UDI/mobile.html`, with `?lang=en` or `?lang=zh-CN`.
 
 Use your own name and actual affiliations when adding author metadata or a citation file. No author identity has been fabricated. Configure a private security-reporting channel when the repository is created.
 
@@ -24,6 +26,7 @@ npm ci
 npm run check
 npx playwright install chromium
 npm run test:e2e
+npm run test:pwa
 npm run evaluate
 ```
 
@@ -55,6 +58,8 @@ The current Pages deployment uses the root of the `gh-pages` branch. That branch
 The included **Deploy demo to Pages** workflow is an alternative when GitHub-hosted Actions runners are available. To use it, change Settings → Pages to GitHub Actions and dispatch the workflow. Do not switch the live source unless that deployment path can complete. Branch publication does not replace the source-validation workflow or prove that CI ran.
 
 The public static demo uses the offline parser only. The optional local-model bridge runs in local development; do not expose it as a production API. Check actual [GitHub Actions runs](https://github.com/deepbule0/UDI/actions) for CI and deployment results, and verify deployment before reporting the demo as live.
+
+Publish the full `dist/` output, including `mobile.html`, `manifest.webmanifest`, `sw.js`, `icons/`, and hashed assets. Do not deploy only the desktop HTML. Verify both phone language links under the actual `/UDI/` subpath and wait for worker readiness before testing offline. Keep older hashed assets available during updates so already-open pages can finish loading. Update both READMEs, the phone guides, release notes, screenshots, and the existing preview alongside a release. Preserve historical release tags.
 
 ## Release message
 

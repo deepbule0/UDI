@@ -12,10 +12,13 @@ npm run dev
 npm run check
 npx playwright install chromium
 npm run test:e2e
+npm run test:pwa
 npm run evaluate
 ```
 
 Core logic lives in `src/core/`, the renderer in `src/Workspace.tsx`, application state and review surfaces in `src/App.tsx`, the package contracts in `spec/`, and fictional fixtures in `src/data/`. The optional local-model bridge is documented in `docs/AGENT.md`.
+
+The phone app lives in `src/mobile/`, with shared persisted state in `src/core/session.ts`. `src/pwa.ts` handles installation/update UI and `scripts/pwa.ts` generates the production worker. Open `/mobile.html` during development. Run PWA checks after a production build; caching is disabled in the dev server. Keep both languages and the desktop/phone lifecycle consistent.
 
 ## Changes worth proposing
 

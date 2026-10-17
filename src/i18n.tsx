@@ -6,6 +6,7 @@ export const languageStorageKey = 'udi-studio:language';
 // Translate the host UI at render time. Package definitions, fixture records,
 // prepared write payloads, capability IDs, and bindings keep their original values.
 const chinese: Record<string, string> = {
+  'Phone app': '手机版',
   'Workspace': '工作空间', 'Data & access': '数据与权限', 'Interface package': '界面包', 'Activity': '活动记录', 'Main navigation': '主导航',
   'Personal workspace': '个人工作空间', 'Local prototype': '本地原型', 'BUILD AROUND YOU': '围绕你的需求构建',
   'Your intent.': '你的意图。', 'Your interface.': '你的界面。', 'The software should': '让软件', 'take your shape.': '适应你的需要。',
@@ -142,7 +143,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = locale === 'zh-CN' ? 'UDI Studio — 用户定义界面' : 'UDI Studio — User-Defined Interface';
+    const phone = window.location.pathname.endsWith('/mobile.html');
+    document.title = locale === 'zh-CN' ? `${phone ? 'UDI Pocket' : 'UDI Studio'} — 用户定义界面` : `${phone ? 'UDI Pocket' : 'UDI Studio'} — User-Defined Interface`;
     try { localStorage.setItem(languageStorageKey, locale); } catch { /* Language still works for this session. */ }
   }, [locale]);
   return <LocaleContext.Provider value={{ locale, setLocale, t: (message, values) => translate(locale, message, values), te: message => translateError(locale, message) }}>{children}</LocaleContext.Provider>;

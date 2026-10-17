@@ -4,7 +4,7 @@
 
 ## What the current checks establish
 
-`npm run check` runs TypeScript validation, core/adapter unit tests, and a production build. `npm run test:e2e` exercises the browser lifecycle. `npm run evaluate` writes [evaluation-results.json](evaluation-results.json) from the public [case set](../eval/cases.json).
+`npm run check` runs TypeScript validation, core/adapter unit tests, and a production build. `npm run test:e2e` exercises the desktop and phone browser lifecycle. After a build, `npm run test:pwa` checks the production manifest, icons, offline reload, and cache isolation. `npm run evaluate` writes [evaluation-results.json](evaluation-results.json) from the public [case set](../eval/cases.json).
 
 The conformance set has 11 supported intents and five unsupported requests, including one mixed supported/unsupported request. Three additional invariants check definition round trips, different dataset resolution, and exclusion of fixture records and local binding IDs from export. These are authored regression cases matched to the explicit grammar. They are neither held-out language understanding tests nor a comparison with another project.
 
@@ -12,7 +12,9 @@ Core tests cover invalid fields and versions, executable component rejection, du
 
 Browser acceptance covers review-before-apply, persistence, undo, dataset rebinding, denied rendering after revocation, explicitly granted and confirmed note creation, export/re-import with cleared grants, narrow-screen overflow, and a fixture-backed model response.
 
-The local verification run on October 17, 2026 passed 70 core/adapter/localization tests, ten browser scenarios in Edge, 16 deterministic intent cases, three lifecycle invariants, TypeScript checks, and the production build. Current GitHub CI results are available in [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
+The local verification run on October 17, 2026 passed 70 core/adapter/localization tests, 19 browser scenarios in Edge (ten desktop/localization and nine phone), three production PWA checks, 16 deterministic intent cases, three lifecycle invariants, TypeScript checks, and the production build. GitHub-hosted validation has not run successfully; see [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
+
+Phone checks use touch emulation at 390 × 844 and 430 × 932 pixels. They cover tab navigation, review/apply/undo, independent grants, language links, evidence-sheet focus, package transfer, and confirmed notes. Production checks verify valid PNG install icons, Chinese offline reopening with saved state, rejection of uncached API requests while offline, and preservation of unrelated origin caches. These are Chromium/Edge checks, not physical Android/iPhone installation tests or a Safari compatibility certification.
 
 Localization checks cover English/Chinese URL selection, preference persistence, Chinese intent review, unsupported compound requests, narrow-screen controls, and identical package/instance state before and after a language switch. Export retains the canonical machine definition rather than serializing translated presentation labels.
 

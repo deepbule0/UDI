@@ -1,6 +1,6 @@
 {
   "name": "udi-studio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "repository": { "type": "git", "url": "git+https://github.com/deepbule0/UDI.git" },
   "homepage": "https://deepbule0.github.io/UDI/",
@@ -18,6 +18,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "test:pwa": "playwright test --config playwright.pwa.config.ts",
     "check": "npm run typecheck && npm test && npm run build",
     "evaluate": "tsx scripts/evaluate.ts",
     "agent": "tsx scripts/agent.ts",

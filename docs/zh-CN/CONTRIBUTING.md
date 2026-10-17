@@ -12,10 +12,13 @@ npm run dev
 npm run check
 npx playwright install chromium
 npm run test:e2e
+npm run test:pwa
 npm run evaluate
 ```
 
 核心逻辑位于 `src/core/`，渲染器位于 `src/Workspace.tsx`，应用状态与审查界面位于 `src/App.tsx`，包契约位于 `spec/`，虚构演示数据位于 `src/data/`。可选本地模型桥接服务见 [AGENT.md](AGENT.md)。
+
+手机应用位于 `src/mobile/`，共享持久化状态位于 `src/core/session.ts`。`src/pwa.ts` 处理安装和更新界面，`scripts/pwa.ts` 生成生产环境的 Service Worker。开发时打开 `/mobile.html`。生产构建后再运行 PWA 检查；开发服务器禁用缓存。请保持中英文以及桌面和手机生命周期一致。
 
 ## 值得提出的变更
 

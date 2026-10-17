@@ -4,7 +4,7 @@
 
 ## 当前检查能够证明什么
 
-`npm run check` 执行 TypeScript 验证、核心与适配器单元测试，以及生产构建。`npm run test:e2e` 覆盖浏览器中的生命周期。`npm run evaluate` 根据公开的[用例集](../../eval/cases.json)生成 [evaluation-results.json](../evaluation-results.json)。
+`npm run check` 执行 TypeScript 验证、核心与适配器单元测试，以及生产构建。`npm run test:e2e` 覆盖桌面和手机浏览器中的生命周期。构建后，`npm run test:pwa` 检查生产环境的安装清单、图标、离线重载和缓存隔离。`npm run evaluate` 根据公开的[用例集](../../eval/cases.json)生成 [evaluation-results.json](../evaluation-results.json)。
 
 符合性用例集包含 11 个受支持的意图和 5 个不受支持的请求，其中一个同时包含受支持和不受支持的内容。另外三个不变量检查定义的导出再导入、不同数据集的解析，以及导出时排除演示记录和本地绑定 ID。这些回归用例是针对明确语法编写的，既不是保留测试集上的语言理解测试，也不是与其他项目的比较。
 
@@ -12,7 +12,9 @@
 
 浏览器验收覆盖：应用前审查、持久化、撤销、数据集重新绑定、撤销授权后拒绝渲染、经过显式授权和确认的笔记创建、导出再导入并清除授权、窄屏溢出，以及基于固定测试数据的模型响应。
 
-2026 年 10 月 17 日的本地验证通过了 70 项核心、适配器与本地化测试、Edge 中的 10 个浏览器场景、16 个确定性意图用例、3 个生命周期不变量、TypeScript 检查和生产构建。最新 GitHub CI 结果可在 [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml) 中查看。
+2026 年 10 月 17 日的本地验证通过了 70 项核心、适配器与本地化测试、Edge 中的 19 个浏览器场景（10 个桌面与本地化场景、9 个手机场景）、3 项生产 PWA 检查、16 个确定性意图用例、3 个生命周期不变量、TypeScript 检查和生产构建。GitHub 托管的验证尚未成功运行，详见 [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)。
+
+手机检查在 390 × 844 和 430 × 932 像素下模拟触摸操作，覆盖标签导航、审核与应用、撤销、独立授权、语言链接、溯源面板焦点、界面包迁移和确认后创建笔记。生产检查验证 PNG 安装图标、保留状态的中文离线重开、离线时未缓存 API 请求失败，以及不删除同源的其他应用缓存。这些是 Chromium/Edge 检查，不是实体 Android/iPhone 的安装测试，也不构成 Safari 兼容性认证。
 
 本地化检查覆盖中英文直达链接、语言偏好持久化、中文意图的应用前审阅、不受支持的复合请求、窄屏控件，以及语言切换前后界面包和实例状态保持一致。导出保留规范中的机器定义，不会将翻译后的显示标签写入界面包。
 

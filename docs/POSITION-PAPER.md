@@ -68,6 +68,8 @@ Sensitive effects need an exact action preview and a separately authorized execu
 
 ## 6. Research example
 
+The example is available in UDI Studio for desktop and [UDI Pocket for phones](MOBILE.md). Pocket renders the same definition as touch-friendly cards and review sheets using the same source and action handlers. This is another presentation of one reference runtime, not evidence of interoperability between independent runtimes. The application release is v0.2.0; the package schema remains Core 0.1.
+
 The reference package renders experiment metrics, a table, a model-performance chart, and deadlines. Users can filter failed runs, group rows by model, add a research-library panel, or enter a focused layout. Each run can expose the commit ID explicitly recorded with it.
 
 Changing the instance from Aurora lab to Atlas lab resolves the same logical source names against different records. Exporting the package omits both datasets, grants, local notes, and history. Re-importing the package requires access to be granted again.

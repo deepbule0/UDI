@@ -10,6 +10,10 @@ Shipped: strict package schema, semantic checks, five view types, reviewed bound
 
 Gate: another developer can run the demo, understand its limitations, and reproduce the transfer loop without assistance.
 
+## v0.2: carry the same lifecycle onto phones
+
+Shipped: bilingual UDI Pocket with touch cards, five navigation tabs, install metadata, offline app-shell caching, and phone acceptance checks. It uses the same Core 0.1 definition and runtime as Studio. See the [phone guide](MOBILE.md). Native store binaries, cross-device synchronization, and real mobile connectors remain future work.
+
 ## Next: validate the two hardest assumptions
 
 1. Run a documented model evaluation on unseen user requests. Separate valid JSON from correct intent interpretation. Publish unsupported cases and failures.

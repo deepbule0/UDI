@@ -1,34 +1,16 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Activity, ArrowDownToLine, ArrowLeft, ArrowRight, ArrowUpRight, Braces, Check, CheckCheck, ChevronDown, ChevronRight, CircleHelp, Database, FileJson2, FlaskConical, GitFork, Layers3, LayoutDashboard, LockKeyhole, PanelRightClose, Plus, RotateCcw, Send, ShieldCheck, Sparkles, Upload, X } from 'lucide-react';
-import { capabilityLabels, exportPackage, forkPackage, importPackage, initialSpec, validateSpec } from './core/spec';
+import { capabilityLabels, exportPackage, forkPackage, importPackage } from './core/spec';
 import { applyProposal, planIntent, suggestedIntents } from './core/planner';
 import { proposalFromModel } from './core/model-planner';
 import { executeAction, prepareAction, type PreparedAction } from './core/runtime';
-import { createInstances, datasets } from './data/fixtures';
-import type { AuditEvent, Capability, Experiment, Instance, Proposal, UDISpec } from './core/types';
+import { datasets } from './data/fixtures';
+import type { AuditEvent, Capability, Experiment, Proposal, UDISpec } from './core/types';
 import Workspace, { ExperimentDetail } from './Workspace';
 import { LanguageSwitch, useI18n } from './i18n';
+import { freshState as fresh, loadState as load, storageKey, type StudioState as SavedState } from './core/session';
 
 type Page = 'workspace' | 'access' | 'package' | 'activity';
-interface SavedState { spec: UDISpec; revision: number; history: UDISpec[]; instances: Record<string, Instance>; datasetId: string; audit: AuditEvent[] }
-const storageKey = 'udi-studio:0.1';
-function fresh(): SavedState { return { spec: initialSpec(), revision: 1, history: [], instances: createInstances(), datasetId: 'aurora', audit: [] }; }
-function load(): SavedState {
-  try {
-    const raw = localStorage.getItem(storageKey);
-    if (!raw || raw.length > 300_000) return fresh();
-    const saved = JSON.parse(raw) as SavedState;
-    if (!validateSpec(saved.spec).valid || !Number.isSafeInteger(saved.revision) || saved.revision < 1 || !datasets.some(d => d.id === saved.datasetId)) return fresh();
-    const defaults = createInstances();
-    for (const key of Object.keys(defaults)) {
-      const item = saved.instances?.[key];
-      if (!item || item.id !== defaults[key].id || item.datasetId !== key || !Array.isArray(item.grants) || !Array.isArray(item.notes)) return fresh();
-      defaults[key].grants = item.grants.filter(c => Object.hasOwn(capabilityLabels, c));
-      defaults[key].notes = item.notes.filter(n => typeof n === 'string').slice(-30);
-    }
-    return { ...saved, instances: defaults, history: (saved.history ?? []).filter(s => validateSpec(s).valid).slice(-20), audit: (saved.audit ?? []).filter(a => typeof a.message === 'string' && typeof a.time === 'string').slice(-100) };
-  } catch { return fresh(); }
-}
 function Modal({ children, title, onClose, wide = false }: { children: ReactNode; title: string; onClose: () => void; wide?: boolean }) {
   const { t } = useI18n();
   const ref = useRef<HTMLDialogElement>(null);
@@ -124,7 +106,7 @@ export default function App() {
       <div className="sidebar-bottom"><button onClick={() => setModal('about')}><CircleHelp size={16} />{t(" About this prototype")}</button><button onClick={() => setModal('reset')}><RotateCcw size={15} />{t(" Reset demo")}</button><span><i className="dot green" />{t(" UDI Core 0.1")}</span></div>
     </aside>
 
-    <header className="topbar"><div><span>{t("Workspace")}</span><ChevronRight size={13} /><b>{t(spec.metadata.title)}</b></div><div><LanguageSwitch /><span className="offline-badge"><i className="dot green" />{t(" Offline demo")}</span><button className="icon-button mobile-edit" aria-label={t("Toggle intent editor")} onClick={() => setEditorOpen(v => !v)}><Sparkles size={18} /></button><span className="local-avatar" title={t("Data stays in this browser")}>{t("L")}</span></div></header>
+    <header className="topbar"><div><span>{t("Workspace")}</span><ChevronRight size={13} /><b>{t(spec.metadata.title)}</b></div><div><a className="phone-demo-link" href={`./mobile.html?lang=${locale}`}>{t('Phone app')}<ArrowUpRight size={13} /></a><LanguageSwitch /><span className="offline-badge"><i className="dot green" />{t(" Offline demo")}</span><button className="icon-button mobile-edit" aria-label={t("Toggle intent editor")} onClick={() => setEditorOpen(v => !v)}><Sparkles size={18} /></button><span className="local-avatar" title={t("Data stays in this browser")}>{t("L")}</span></div></header>
 
     <main className="main-content"><div className="page-heading"><div><span className="eyebrow">{t("SOFTWARE, DEFINED BY YOU")}</span><h1>{t(page === 'workspace' ? spec.metadata.title : page === 'access' ? 'Your data. Your rules.' : page === 'package' ? 'An interface worth sharing.' : 'Every change, in the open.')}</h1><p>{t(page === 'workspace' ? 'A workspace that works the way you think.' : page === 'access' ? 'Bind the package to a dataset. Decide what it can access.' : page === 'package' ? 'Take the definition with you. Keep the instance here.' : 'A local record of revisions, permissions, and actions.')}</p></div>{page === 'workspace' && <button className="button subtle inspect-button" onClick={() => setPage('package')}><Braces size={15} />{t(" Inspect spec")}</button>}</div>
 
