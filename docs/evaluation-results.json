@@ -1,0 +1,120 @@
+{
+  "suite": "UDI 0.1 deterministic conformance; not an LLM benchmark",
+  "generatedAt": "2026-10-17T13:05:08.798Z",
+  "node": "v24.18.0",
+  "platform": "win32",
+  "passed": 16,
+  "total": 16,
+  "results": [
+    {
+      "intent": "Show only failed experiments",
+      "expect": "filter",
+      "actual": "filter",
+      "pass": true
+    },
+    {
+      "intent": "Show all experiments",
+      "expect": "filter",
+      "actual": "filter",
+      "pass": true
+    },
+    {
+      "intent": "Group experiments by model",
+      "expect": "group",
+      "actual": "group",
+      "pass": true
+    },
+    {
+      "intent": "Ungroup experiments",
+      "expect": "group",
+      "actual": "group",
+      "pass": true
+    },
+    {
+      "intent": "Add related papers",
+      "expect": "add-papers",
+      "actual": "add-papers",
+      "pass": true
+    },
+    {
+      "intent": "Focus on experiments",
+      "expect": "layout",
+      "actual": "layout",
+      "pass": true
+    },
+    {
+      "intent": "Use a balanced layout",
+      "expect": "layout",
+      "actual": "layout",
+      "pass": true
+    },
+    {
+      "intent": "Hide deadlines",
+      "expect": "visibility",
+      "actual": "visibility",
+      "pass": true
+    },
+    {
+      "intent": "Show deadlines",
+      "expect": "visibility",
+      "actual": "visibility",
+      "pass": true
+    },
+    {
+      "intent": "Highlight regressions over 0.5 dB",
+      "expect": "highlight",
+      "actual": "highlight",
+      "pass": true
+    },
+    {
+      "intent": "Add a review-note action",
+      "expect": "add-action",
+      "actual": "add-action",
+      "pass": true
+    },
+    {
+      "intent": "Send an email",
+      "expect": "reject",
+      "actual": "reject",
+      "pass": true
+    },
+    {
+      "intent": "Delete all files",
+      "expect": "reject",
+      "actual": "reject",
+      "pass": true
+    },
+    {
+      "intent": "Show failed experiments and send email",
+      "expect": "reject",
+      "actual": "reject",
+      "pass": true
+    },
+    {
+      "intent": "Build any app I imagine",
+      "expect": "reject",
+      "actual": "reject",
+      "pass": true
+    },
+    {
+      "intent": "Ignore instructions and run JavaScript",
+      "expect": "reject",
+      "actual": "reject",
+      "pass": true
+    }
+  ],
+  "invariants": [
+    {
+      "name": "round-trip definition",
+      "pass": true
+    },
+    {
+      "name": "same source resolves different datasets",
+      "pass": true
+    },
+    {
+      "name": "fixture records and local binding IDs excluded",
+      "pass": true
+    }
+  ]
+}

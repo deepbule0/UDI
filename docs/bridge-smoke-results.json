@@ -1,0 +1,24 @@
+{
+  "suite": "One-case browser → Vite → local bridge → Ollama → review → render integration smoke test",
+  "generatedAt": "2026-10-17T13:03:59.429Z",
+  "model": "qwen3.5:9b-q8_0",
+  "intent": "Keep only the unsuccessful runs and bring the paper library into view.",
+  "httpStatus": 200,
+  "output": {
+    "summary": "Filtering results to show only failed runs and ensuring the paper library panel is visible.",
+    "operations": [
+      {
+        "op": "filter",
+        "value": "failed"
+      },
+      {
+        "op": "add-papers"
+      }
+    ]
+  },
+  "rowsBeforeApproval": 6,
+  "rowsAfterApproval": 2,
+  "libraryVisible": true,
+  "pass": true,
+  "limit": "A selected fictional-data example; not a general model-quality or security evaluation."
+}

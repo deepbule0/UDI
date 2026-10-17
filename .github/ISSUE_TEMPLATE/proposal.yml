@@ -1,0 +1,17 @@
+name: Design or research proposal
+description: Challenge a claim, improve a contract, or propose an experiment
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: User task or research question
+      description: What concrete task or falsifiable assumption does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Prior work, proposed change, and evidence
+      description: Link primary sources and describe how the change could be evaluated.
+    validations:
+      required: true

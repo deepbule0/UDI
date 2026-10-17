@@ -1,0 +1,15 @@
+name: Bug report
+description: A reproducible problem in the reference prototype
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include expected behavior and reproduction steps using fictional data.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and validation
+      description: Browser, Node version, package version, and relevant test output. Do not include secrets or private records.

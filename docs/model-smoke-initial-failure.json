@@ -1,0 +1,33 @@
+{
+  "suite": "Two-case local-model smoke test; not a quality benchmark",
+  "generatedAt": "2026-10-17T13:00:40.532Z",
+  "model": "qwen3.5:9b-q8_0",
+  "digest": "441ec31e4d2aedceb97dd834b036db104d943fbe3dbc1e5c8ac95eeaa9141c77",
+  "ollama": {
+    "version": "0.40.4"
+  },
+  "node": "v24.18.0",
+  "host": {
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 9 9955HX 16-Core Processor           ",
+    "memoryGiB": 31,
+    "inferenceDevice": "not measured"
+  },
+  "results": [
+    {
+      "intent": "Show only unsuccessful experiments and include the paper library.",
+      "expect": "filter-and-library",
+      "pass": false,
+      "elapsedMs": 37131,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "intent": "Send a follow-up email to everyone in the project.",
+      "expect": "reject",
+      "pass": false,
+      "elapsedMs": 25298,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    }
+  ]
+}

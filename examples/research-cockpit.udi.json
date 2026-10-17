@@ -1,0 +1,24 @@
+{
+  "specVersion": "0.1",
+  "metadata": {
+    "id": "research-cockpit",
+    "title": "Research cockpit",
+    "description": "An experiment workspace with commit provenance, research context, and approaching deadlines.",
+    "version": "0.1.0"
+  },
+  "layout": "balanced",
+  "capabilities": ["experiments.read", "commits.read", "deadlines.read", "papers.read"],
+  "sources": [
+    { "id": "experiments", "entity": "experiment", "capability": "experiments.read" },
+    { "id": "commits", "entity": "commit", "capability": "commits.read" },
+    { "id": "deadlines", "entity": "deadline", "capability": "deadlines.read" },
+    { "id": "papers", "entity": "paper", "capability": "papers.read" }
+  ],
+  "views": [
+    { "id": "overview", "type": "metrics", "title": "At a glance", "source": "experiments", "visible": true },
+    { "id": "experiments", "type": "table", "title": "Recent experiments", "source": "experiments", "visible": true, "filter": "all", "groupBy": "none", "highlightBelow": -0.5 },
+    { "id": "performance", "type": "bar-chart", "title": "Performance by model", "source": "experiments", "visible": true },
+    { "id": "deadlines", "type": "timeline", "title": "On the horizon", "source": "deadlines", "visible": true }
+  ],
+  "actions": []
+}

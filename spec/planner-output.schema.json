@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UDI planner output 0.1",
+  "type": "object", "additionalProperties": false,
+  "required": ["summary", "operations"],
+  "properties": {
+    "summary": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "operations": {
+      "type": "array", "minItems": 0, "maxItems": 8,
+      "items": { "anyOf": [
+        { "type": "object", "additionalProperties": false, "required": ["op", "value"], "properties": { "op": { "const": "filter" }, "value": { "enum": ["all", "failed"] } } },
+        { "type": "object", "additionalProperties": false, "required": ["op", "value"], "properties": { "op": { "const": "group" }, "value": { "enum": ["none", "model"] } } },
+        { "type": "object", "additionalProperties": false, "required": ["op", "value"], "properties": { "op": { "const": "layout" }, "value": { "enum": ["balanced", "focus"] } } },
+        { "type": "object", "additionalProperties": false, "required": ["op", "viewId", "value"], "properties": { "op": { "const": "visibility" }, "viewId": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" }, "value": { "type": "boolean" } } },
+        { "type": "object", "additionalProperties": false, "required": ["op", "value"], "properties": { "op": { "const": "highlight" }, "value": { "type": "number", "minimum": -10, "maximum": 0 } } },
+        { "type": "object", "additionalProperties": false, "required": ["op"], "properties": { "op": { "const": "add-papers" } } },
+        { "type": "object", "additionalProperties": false, "required": ["op"], "properties": { "op": { "const": "add-action" } } }
+      ] }
+    }
+  }
+}
