@@ -29,10 +29,10 @@ Gate: evidence that revision and transfer help users compared with equivalent fi
 
 Move policy and credentials into a trusted gateway. Add a scoped read-only source with validated results. Implement a versioned adapter to an established declarative renderer. Add transaction semantics for concurrent edits and expiring, single-use approvals before introducing external writes.
 
-Gate: independent review of data boundaries and a successful cross-implementation package exercise. Current two-dataset rebinding is not sufficient evidence of ecosystem portability.
+Gate: independent review of data boundaries and a successful cross-implementation package exercise. Rebinding datasets within one runtime is not sufficient evidence of ecosystem portability.
 
-## Later: wider workflows and a registry
+## Later: wider workflows and governed distribution
 
-Consider an event/workflow contract, migrations, package integrity, provenance, moderation, capability-difference reviews, and distribution. A semantic graph and background agent are possible extensions, not prerequisites for the core idea.
+The lightweight GitHub Issues community is already available; robust moderation, package integrity, and larger-scale distribution remain future work. Consider an event/workflow contract, migrations, provenance, and capability-difference reviews. A semantic graph and background agent are possible extensions, not prerequisites for the core idea.
 
 Gate: recurring real user needs that the simpler package model cannot express. Do not build a marketplace before there are useful packages and a credible security model.

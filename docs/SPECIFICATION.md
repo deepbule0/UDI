@@ -48,7 +48,7 @@ Normalized fixture records are defined in [types.ts](../src/core/types.ts). Expe
 
 The reference `Instance` has an ID, a dataset binding, granted capabilities, and local notes. Editing state additionally holds the active package, revision counter, previous definitions, and activity history. This is all browser-local state.
 
-Source resolution MUST check the instance/dataset match and both declaration and grant before returning data. Fixture records are cloned on read. Capability grants are scoped to a particular bundled dataset. Initial read grants are preconfigured only for the fictional demonstration. Import installation clears grants for both local instances.
+Source resolution MUST check the instance/dataset match and both declaration and grant before returning data. Records are cloned on read. Capability grants are scoped to a particular dataset instance, including personal imports. Initial read grants are preconfigured only for the fictional platform examples; personal imports start without grants. Package installation clears grants across all local instances.
 
 An implementation integrating real resources MUST enforce scope outside untrusted client code. UDI Core 0.1 does not specify connector credentials, transport, identity federation, or server authorization.
 
@@ -57,6 +57,8 @@ An implementation integrating real resources MUST enforce scope outside untruste
 A reference proposal contains a `baseRevision`, stable serialization of the base definition (`baseFingerprint`), a summary, operations, and computed capability additions. The fingerprint is exact-state comparison material, not a cryptographic hash or signature.
 
 Supported operations are `filter`, `group`, `layout`, `visibility`, `highlight`, `add-papers`, and `add-action`. See [planner-output.schema.json](../spec/planner-output.schema.json) for model output shape. The host computes base-state fields and capability differences; model-supplied grants are invalid.
+
+Agent chat and settings-style controls also expose reviewed host operations for dataset binding and capability grants. These change local instance state rather than the portable package; they are not additional Core proposal operations. Model output cannot grant access by itself.
 
 Application MUST compare both base revision and definition, apply operations to a copy, and validate the complete candidate before replacement. Failure leaves the original definition unchanged. A new capability request MUST NOT modify grants. Undo restores a previous definition under a new, increasing local revision; it does not roll back data, notes, or permission decisions.
 

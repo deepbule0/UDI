@@ -8,8 +8,8 @@ The public repository is [deepbule0/UDI](https://github.com/deepbule0/UDI). It i
 
 - Repository: `https://github.com/deepbule0/UDI`.
 - Demo deployment target: `https://deepbule0.github.io/UDI/`.
-- Description: `An experimental package-and-runtime model for persistent, user-defined interfaces, with reviewed revisions and local data bindings.`
-- Topics: `generative-ui`, `human-computer-interaction`, `end-user-programming`, `ai-agents`, `declarative-ui`, `personal-software`.
+- Description: `A proposal for apps with agent-editable, shareable interfaces. Bilingual desktop/phone reference demos include chat/settings controls, personal data management, and community sharing.`
+- Topics: `ai-agents`, `chinese`, `declarative-ui`, `end-user-programming`, `generative-ui`, `human-computer-interaction`, `interface-sharing`, `personal-software`, `progressive-web-app`, `typescript`, `user-defined-interface`.
 - License supplied: MIT for original code/documentation; review it as the project owner before publication.
 - Initial public release tag: `v0.1.0`.
 - Current release: `v0.3.0`; package schema remains Core `0.1`.

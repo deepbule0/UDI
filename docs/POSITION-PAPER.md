@@ -18,7 +18,7 @@ The question is not simply whether AI can generate a dashboard. It is whether us
 
 ## 2. Definition and scope
 
-UDI can also apply within one familiar application. A music provider could supply audio and playback capabilities together with a default interface; a person could revise the player through prompts or adopt a shared interface using their own library and permissions. The provider continues to supply supported services while the user controls their presentation and supported interactions. The reference research prototype does not implement audio playback.
+UDI can also apply within one familiar application. A music provider could supply audio and playback capabilities together with a default interface; a person could revise the player through agent prompts or settings-style controls, or adopt a shared interface using their own library and permissions. The provider continues to supply supported services while the user controls their presentation and supported interactions. The reference research prototype does not implement audio playback.
 
 A User-Defined Interface is a persistent interactive environment whose structure and supported behavior can be revised from user intent, with agent proposals mediated through an inspectable definition and a policy-enforcing runtime.
 
@@ -99,9 +99,9 @@ These are hypotheses. This repository reports conformance checks, not evidence t
 
 ## 9. Limitations and next steps
 
-The current package vocabulary is domain-specific. Portability has been demonstrated only between bundled instances of one runtime. The offline parser cannot generalize beyond a small grammar. The optional local-model bridge accepts the same bounded operations; its selected smoke examples do not establish general model quality. Browser-local data and policy are inspectable and editable by the user.
+The current package vocabulary is research-specific. Portability remains limited to installations of one reference runtime; personal data imports and community packages do not establish cross-runtime interoperability. The offline parser cannot generalize beyond a small grammar. The optional local-model bridge accepts the same bounded operations; its selected smoke examples do not establish general model quality. Browser-local data and policy are inspectable and editable by the user.
 
-Next steps are to evaluate an actual model planner, add one scoped read-only connector behind a trusted gateway, map the package onto an existing renderer, and test package transfer with users who did not author the original tool. Only after those results should UDI expand toward background workflows, a semantic graph, or a community registry.
+Next steps are to evaluate an actual model planner, add one scoped read-only connector behind a trusted gateway, map the package onto an existing renderer, and test package transfer with users who did not author the original tool. Background workflows, a semantic graph, and governed community distribution remain possible extensions requiring separate evidence and security work.
 
 ## 10. Conclusion
 

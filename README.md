@@ -10,7 +10,9 @@ Desktop: [English](https://deepbule0.github.io/UDI/?lang=en) · [简体中文](h
 
 **Validation:** Local checks on October 17, 2026 passed 133 unit tests, 35 browser scenarios, and three production PWA checks. GitHub-hosted validation has not run successfully. [Validation evidence](docs/EVALUATION.md) · [GitHub Actions status](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
 
-UDI is a proposal and reference prototype for persistent personal software. Users describe how they want to work; an agent proposes a structured interface definition; a runtime validates and renders it against locally bound data and explicitly granted capabilities.
+UDI proposes apps that supply **data, trusted capabilities, and a usable default interface**. Users can reshape that interface and supported interactions through **agent conversation or ordinary controls**, or adopt and adapt an interface shared by the community.
+
+This repository demonstrates that model through a persistent research workspace. An assistant proposes a structured definition; a runtime validates it and renders it against locally bound data and explicitly granted capabilities. The broader [music-app example](docs/EXAMPLES.md) explains how the same idea could apply to an everyday app.
 
 The unit of reuse is an **interface package**, not a copy of someone's workspace. A package describes views, logical data sources, capability requests, and actions. Each installation supplies its own data bindings, grants, and execution history.
 
@@ -22,9 +24,11 @@ The unit of reuse is an **interface package**, not a copy of someone's workspace
 
 ## Agent, data, and community
 
-Open **Agent** to converse with the offline command assistant, or choose **Controls** for settings-style interface, source, and permission controls. Both paths prepare changes for review. Try `Use Atlas lab`, `Revoke experiment access`, or `Show only failed experiments`. The hosted assistant supports a bounded grammar; local development can use an optional model.
+Open [**Agent**](https://deepbule0.github.io/UDI/?lang=en&view=agent) to converse with the offline command assistant, or choose **Controls** for settings-style interface, source, and permission controls. Both paths prepare changes for review. Try `Use Atlas lab`, `Revoke experiment access`, or `Show only failed experiments`. The hosted assistant supports a bounded grammar; local development can use an optional model.
 
-Open **Data** to distinguish platform-provided fictional datasets from personal research JSON imported into your browser. Personal imports start with no grants. You can review access, download data, or confirm its removal. Open **Community** to browse validated public GitHub posts and clearly labeled project starter examples, preview and install/fork a definition, or review your package and post it through GitHub. Final posting requires your own GitHub sign-in and submission; no post is created merely by opening the composer. See the [community and personal-data guide](docs/COMMUNITY.md).
+Open [**Data**](https://deepbule0.github.io/UDI/?lang=en&view=access) to distinguish platform-provided fictional datasets from personal research JSON imported into your browser. Personal imports start with no grants. You can review access, download data, or confirm its removal. Open [**Community**](https://deepbule0.github.io/UDI/?lang=en&view=community) to browse validated public GitHub posts and clearly labeled project starter examples, preview and install/fork a definition, or review your package and post it through GitHub. Final posting requires your own GitHub sign-in and submission; no post is created merely by opening the composer. See the [community and personal-data guide](docs/COMMUNITY.md).
+
+<img src="docs/assets/udi-agent.en.png" width="280" alt="Agent conversation and settings controls" /> <img src="docs/assets/udi-community.en.png" width="280" alt="Community discovery, posting, and project starter interfaces" />
 
 UDI also applies within an ordinary app: a music provider could supply audio and playback capabilities plus a default interface, while users prompt an agent to redesign it or adopt a shared player interface. This research prototype demonstrates the lifecycle; it does not implement music playback or arbitrary app generation.
 
@@ -129,6 +133,9 @@ These descriptions are scope comparisons, not claims that those projects cannot 
 | Implemented in v0.3 | Proposed work |
 | --- | --- |
 | Five component types and bounded revision operations | General workflow DSL and domain-independent component catalogs |
+| Agent conversation and settings-style controls | Broad, evaluated natural-language authoring |
+| Personal research JSON import, download, and confirmed removal | Live personal-account and platform connectors |
+| Public GitHub community, reviewed posting, and install/fork | Moderated distribution, ratings, and signed updates |
 | Local fixture bindings and permission controls | Credential-holding connector gateway and live services |
 | Offline parser; optional local-model bridge | Evaluated model planners and repair strategies |
 | Local persistence, export/import, fork, undo | Signed packages, migrations, and community moderation |

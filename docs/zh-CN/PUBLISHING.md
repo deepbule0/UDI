@@ -8,9 +8,9 @@
 
 - 仓库：[deepbule0/UDI](https://github.com/deepbule0/UDI)。
 - 演示部署目标：`https://deepbule0.github.io/UDI/`。
-- 英文描述：`An experimental package-and-runtime model for persistent, user-defined interfaces, with reviewed revisions and local data bindings.`
-- 中文描述：`面向持久化用户定义界面的实验性包与运行时模型，支持经过审查的修订和本地数据绑定。`
-- Topics：`generative-ui`、`human-computer-interaction`、`end-user-programming`、`ai-agents`、`declarative-ui`、`personal-software`。
+- 英文描述：`A proposal for apps with agent-editable, shareable interfaces. Bilingual desktop/phone reference demos include chat/settings controls, personal data management, and community sharing.`
+- 中文说明：`支持智能体编辑与界面分享的应用模型提案。中英双语桌面和手机参考演示提供对话与设置式控件、个人数据管理及社区分享。`
+- Topics：`ai-agents`、`chinese`、`declarative-ui`、`end-user-programming`、`generative-ui`、`human-computer-interaction`、`interface-sharing`、`personal-software`、`progressive-web-app`、`typescript`、`user-defined-interface`。
 - 已提供许可证：原创代码与文档使用 MIT；请项目所有者在发布前审阅。
 - 首个公开发布标签：`v0.1.0`。
 - 当前版本：`v0.3.0`；界面包格式仍为 Core `0.1`。
