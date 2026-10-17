@@ -18,6 +18,8 @@ The question is not simply whether AI can generate a dashboard. It is whether us
 
 ## 2. Definition and scope
 
+UDI can also apply within one familiar application. A music provider could supply audio and playback capabilities together with a default interface; a person could revise the player through prompts or adopt a shared interface using their own library and permissions. The provider continues to supply supported services while the user controls their presentation and supported interactions. The reference research prototype does not implement audio playback.
+
 A User-Defined Interface is a persistent interactive environment whose structure and supported behavior can be revised from user intent, with agent proposals mediated through an inspectable definition and a policy-enforcing runtime.
 
 “User-defined” describes control over the environment's definition. It does not mean unlimited expressiveness, removal of developers, or automatic understanding of every user request. The runtime still determines the supported components, operations, and capabilities.
@@ -68,7 +70,9 @@ Sensitive effects need an exact action preview and a separately authorized execu
 
 ## 6. Research example
 
-The example is available in UDI Studio for desktop and [UDI Pocket for phones](MOBILE.md). Pocket renders the same definition as touch-friendly cards and review sheets using the same source and action handlers. This is another presentation of one reference runtime, not evidence of interoperability between independent runtimes. The application release is v0.2.0; the package schema remains Core 0.1.
+The example is available in UDI Studio for desktop and [UDI Pocket for phones](MOBILE.md). Pocket renders the same definition as touch-friendly cards and review sheets using the same source and action handlers. This is another presentation of one reference runtime, not evidence of interoperability between independent runtimes. The application release is v0.3.0; the package schema remains Core 0.1.
+
+Agent chat and settings-style controls share a reviewed controller for interface, binding, and grant changes. People can import normalized personal research data as independent local instances. A lightweight [community registry](COMMUNITY.md) reads validated public GitHub posts, offers clearly labeled project starter definitions, and hands reviewed publication to the person's GitHub account. Discovery and installation are implemented; user adoption, moderation, ecosystem portability, and model quality remain evaluation questions.
 
 The reference package renders experiment metrics, a table, a model-performance chart, and deadlines. Users can filter failed runs, group rows by model, add a research-library panel, or enter a focused layout. Each run can expose the commit ID explicitly recorded with it.
 

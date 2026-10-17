@@ -46,8 +46,8 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 430, height: 932 }
     }
 
     for (const [name, heading] of [
-      ['Shape', 'Change one thing.'], ['Data', 'Data on your terms.'],
-      ['Share', 'Your definition travels.'], ['Activity', 'A trace of your choices.'],
+      ['Agent', 'Agent'], ['Data', 'Data on your terms.'],
+      ['Community', 'Community'], ['Activity', 'A trace of your choices.'],
       ['Home', 'Your research,'],
     ]) {
       await navigate(page, name);
@@ -61,20 +61,20 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 430, height: 932 }
 test('phone revisions require review, persist after reload, and can be undone', async ({ page }) => {
   await page.goto('/mobile.html?lang=en');
   const before = await session(page);
-  await navigate(page, 'Shape');
+  await navigate(page, 'Agent');
   await page.getByRole('button', { name: /Show only failed experiments$/ }).tap();
   await expect(page.getByRole('region', { name: 'Proposed revision' })).toContainText('Show failed experiments');
   expect(await session(page)).toEqual(before);
   await navigate(page, 'Home');
   await expect(runs(page)).toHaveCount(6);
-  await navigate(page, 'Shape');
+  await navigate(page, 'Agent');
   await page.getByRole('button', { name: 'Apply change', exact: true }).tap();
   await expect(runs(page)).toHaveCount(2);
   await expect(runs(page)).toContainText(['Learning-rate ablation', 'Feature fusion v2']);
   expect((await session(page)).revision).toBe(before.revision + 1);
   await page.reload();
   await expect(runs(page)).toHaveCount(2);
-  await navigate(page, 'Shape');
+  await navigate(page, 'Agent');
   await page.getByRole('button', { name: 'Undo', exact: true }).tap();
   await navigate(page, 'Home');
   await expect(runs(page)).toHaveCount(6);
@@ -154,7 +154,8 @@ test('phone evidence sheets support keyboard dismissal and respect commit grants
 test('phone exports only a definition and imports require fresh grants for both instances', async ({ page }) => {
   await page.goto('/mobile.html?lang=en');
   const definition = (await session(page)).spec;
-  await navigate(page, 'Share');
+  await navigate(page, 'Community');
+  await page.getByText('Local package tools', { exact: true }).tap();
   await page.getByRole('button', { name: 'Export package', exact: true }).tap();
   const exportedDialog = page.getByRole('dialog', { name: 'Export interface package', exact: true });
   await expect(exportedDialog).toContainText('Record payloads, grants, and bindings excluded');
@@ -191,7 +192,7 @@ test('phone exports only a definition and imports require fresh grants for both 
 
 test('phone note creation needs a grant and a separate exact-write confirmation', async ({ page }) => {
   await page.goto('/mobile.html?lang=en');
-  await navigate(page, 'Shape');
+  await navigate(page, 'Agent');
   await page.getByRole('button', { name: /Add a review-note action$/ }).tap();
   await expect(page.getByRole('region', { name: 'Proposed revision' })).toContainText('notes.write');
   await page.getByRole('button', { name: 'Apply change', exact: true }).tap();

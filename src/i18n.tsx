@@ -6,6 +6,16 @@ export const languageStorageKey = 'udi-studio:language';
 // Translate the host UI at render time. Package definitions, fixture records,
 // prepared write payloads, capability IDs, and bindings keep their original values.
 const chinese: Record<string, string> = {
+  'Agent': '智能体', 'Community': '社区', 'Personal data': '个人数据', 'Platform data': '平台数据', 'Personal source': '个人数据源', 'Platform fixture': '平台示例',
+  'Agent chat and settings controls, reviewed revisions, personal-data import, independent grants, confirmed local notes, and community discovery and posting.': '智能体对话与设置控件、修订审核、个人数据导入、独立授权、确认后的本地笔记，以及社区发现与发布。',
+  'The hosted assistant uses supported offline commands. Local development supports an optional Ollama model. Platform datasets are fictional; personal JSON imports stay in this browser. Community reads public GitHub posts; publishing requires a final submission on GitHub. Live data connectors and background workflows are not implemented.': '托管助手使用支持范围内的离线指令，本地开发可选用 Ollama 模型。平台数据集为虚构内容，个人 JSON 导入保存在此浏览器。社区读取公开 GitHub 帖子，发布时需在 GitHub 完成最终提交。尚未实现实时数据连接器和后台工作流。',
+  'The assistant supports a bounded set of offline commands. Platform datasets are fictional; personal JSON imports stay in this browser. Community reads public GitHub posts, with final posting on GitHub. No hosted model or live data connector is connected.': '助手支持有限的离线指令。平台数据集为虚构内容，个人 JSON 导入保存在此浏览器。社区读取公开 GitHub 帖子，并在 GitHub 完成最终发布。未连接托管模型或实时数据连接器。',
+  'This clears imported personal datasets, local conversation, revisions, notes, grants, and activity in this browser. Download personal data and your package first to keep a copy.': '这会清除此浏览器中导入的个人数据集、本地对话、修订、笔记、授权及活动。请先下载个人数据与界面包，保留副本。',
+  'Your agent. Your controls.': '你的智能体，你的控制面板。', 'Your agent.': '你的智能体，', 'Your controls.': '你的控制面板。',
+  'Chat or use controls. Review changes before applying them.': '通过对话或控制面板操作，先审阅更改，再应用。', 'Interfaces, shared.': '共享界面，共同创作。',
+  'Discover, adapt, and post an interface of your own.': '发现、改造，并发布你自己的界面。', 'Open workspace': '打开工作空间', 'Local package tools': '本地界面包工具',
+  'No notes yet. Add a review-note action in Agent, grant notes.write here, then preview the exact write from Home.': '暂无笔记。先在智能体中添加审阅笔记操作，在这里授予 notes.write，再从首页预览并确认具体内容。',
+  'Start with a suggestion in Agent. Your first change will appear here.': '从智能体中的一条建议开始，你的首次修改会记录在这里。',
   'Phone app': '手机版',
   'Workspace': '工作空间', 'Data & access': '数据与权限', 'Interface package': '界面包', 'Activity': '活动记录', 'Main navigation': '主导航',
   'Personal workspace': '个人工作空间', 'Local prototype': '本地原型', 'BUILD AROUND YOU': '围绕你的需求构建',

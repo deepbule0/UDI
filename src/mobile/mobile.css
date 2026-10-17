@@ -32,3 +32,7 @@ html[lang=zh-CN] .m-hero h1{font-family:'Manrope Variable','Microsoft YaHei',san
 .m-page-intro>p,.m-card>p,.m-sheet-body>p{font-size:14px}.m-suggestions>button{font-size:13px}.m-permission-row strong{font-size:13px}.m-proposal>p{font-size:14px}.m-info-note{font-size:12px!important}.m-run-card>p{font-size:12px}.m-run-card h3{font-size:18px}.m-button{font-size:13px}.m-deadlines h3,.m-papers h3{font-size:14px}
 .language-switch button{min-width:44px;min-height:44px}.m-hero-cta{min-height:44px}.m-sheet-header>.m-icon-button{height:44px;width:44px}.m-instance-strip select{min-height:44px}.m-update-banner button{min-height:44px}.m-proposal summary{min-height:44px}.m-toast>button{width:44px;height:44px;margin:-6px -9px -6px -4px}.m-toast>p{align-self:center}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.m-local-package-tools{margin-top:26px;border-top:1px solid var(--m-line);padding-top:10px}.m-local-package-tools>summary{min-height:48px;display:flex;align-items:center;font-size:14px;font-weight:700;color:var(--m-forest);cursor:pointer}.m-local-package-tools>summary::after{content:'+';margin-left:auto;font-size:22px}.m-local-package-tools[open]>summary::after{content:'−'}.m-main>.udi-agent,.m-main .uc-community,.m-main .udi-ds{margin-bottom:22px}.m-tabbar strong{font-size:10px}
+.m-agent-intro{padding:5px 2px 13px}.m-agent-intro h1{font-size:25px!important;margin:0;line-height:1.4}
+.m-run-card h3,.m-run-card>p,.m-stats strong,.m-group-title,.m-deadlines h3,.m-papers h3{overflow-wrap:anywhere}

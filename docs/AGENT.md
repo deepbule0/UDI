@@ -1,10 +1,18 @@
-# Optional local-model planner
+# Agent chat, controls, and optional local-model planner
 
 **English** | [简体中文](zh-CN/AGENT.md)
 
 The default demo works without a model. This optional development bridge lets a locally installed Ollama model translate natural-language edits into the same bounded operation vocabulary.
 
-## Run it
+## Agent and Controls
+
+<img src="assets/udi-agent.en.png" width="340" alt="UDI Pocket Agent with Chat and Controls modes and a local command composer" />
+
+The **Agent** tab is available on desktop and phone. **Chat** keeps the last 40 conversation messages locally and prepares supported English/Chinese commands for review. **Controls** exposes layout, experiment filters, visible views, connected data sources, and requested capability grants in a settings layout. Both use the same controller and exact-state guard; changes apply only after **Apply change**.
+
+Examples: `Use Atlas lab`, `Revoke experiment access`, `Grant experiment access`, `只显示失败实验`, and `撤销实验访问权限`. Binding commands can use an imported source name or ID. Grants are per instance, and `notes.write` still requires a separate exact-note confirmation before a write. Undo restores a definition while preserving current bindings, grants, and notes. Unsupported requests do not change state. Clear the local conversation from the Agent panel. The hosted mode is labeled **Offline command assistant**, with no LLM.
+
+## Run the optional model bridge
 
 Install and start [Ollama](https://docs.ollama.com/), then install a model that supports structured JSON outputs and record its exact local model name. Model selection depends on your hardware; this project does not bundle or endorse a specific model.
 

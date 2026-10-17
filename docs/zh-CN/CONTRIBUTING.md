@@ -20,6 +20,8 @@ npm run evaluate
 
 手机应用位于 `src/mobile/`，共享持久化状态位于 `src/core/session.ts`。`src/pwa.ts` 处理安装和更新界面，`scripts/pwa.ts` 生成生产环境的 Service Worker。开发时打开 `/mobile.html`。生产构建后再运行 PWA 检查；开发服务器禁用缓存。请保持中英文以及桌面和手机生命周期一致。
 
+智能体对话与设置位于 `src/agent/`，个人数据校验与管理位于 `src/data/sources.ts` 和 `DataSourcesPanel.tsx`，基于 GitHub 的社区位于 `src/community/`。社区浏览器测试应模拟动态和编辑器，不得发布真实 Issue。
+
 ## 值得提出的变更
 
 - 经过测试、并明确标注上游版本的 A2UI 或 json-render 适配器。

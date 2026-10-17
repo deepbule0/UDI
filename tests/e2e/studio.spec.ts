@@ -26,8 +26,10 @@ test('revocation affects rendering and write effects require an explicit grant a
   await expect(page.getByRole('table')).toHaveCount(0);
   await page.getByRole('button', { name: 'Data & access', exact: true }).click();
   await page.getByRole('switch', { name: 'Read experiment results' }).click();
+  await page.getByRole('button', { name: 'Workspace', exact: true }).click();
   await page.getByRole('button', { name: 'Add a review-note action' }).click();
   await page.getByRole('button', { name: 'Apply change' }).click();
+  await page.getByRole('button', { name: 'Data & access', exact: true }).click();
   await page.getByRole('switch', { name: 'Create local review notes' }).click();
   await page.getByRole('button', { name: 'Workspace', exact: true }).click();
   await page.getByRole('button', { name: 'Create review note', exact: true }).click();

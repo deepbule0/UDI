@@ -20,6 +20,8 @@ Core logic lives in `src/core/`, the renderer in `src/Workspace.tsx`, applicatio
 
 The phone app lives in `src/mobile/`, with shared persisted state in `src/core/session.ts`. `src/pwa.ts` handles installation/update UI and `scripts/pwa.ts` generates the production worker. Open `/mobile.html` during development. Run PWA checks after a production build; caching is disabled in the dev server. Keep both languages and the desktop/phone lifecycle consistent.
 
+Agent chat/settings are in `src/agent/`, personal-data validation and management in `src/data/sources.ts` and `DataSourcesPanel.tsx`, and the GitHub-backed community in `src/community/`. Community browser tests mock the feed and composer and must not publish real issues.
+
 ## Changes worth proposing
 
 - A tested A2UI or json-render adapter with an explicitly named upstream version.

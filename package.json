@@ -1,6 +1,6 @@
 {
   "name": "udi-studio",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "repository": { "type": "git", "url": "git+https://github.com/deepbule0/UDI.git" },
   "homepage": "https://deepbule0.github.io/UDI/",

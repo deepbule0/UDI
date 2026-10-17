@@ -8,7 +8,9 @@ The result should be something you can keep, understand, change, and reuse with 
 
 UDI separates a reusable interface package from a personal instance. The package describes views, logical data sources, capability requests, and supported actions. The instance supplies its own bindings, grants, records, and history. An agent proposes revisions; a deterministic runtime validates them; the user reviews meaningful changes and approves effects.
 
-The current experimental release, v0.2.0, includes a position paper, an executable draft specification, and two demonstrations: [UDI Studio for desktop](https://deepbule0.github.io/UDI/?lang=en) and [UDI Pocket for phones](https://deepbule0.github.io/UDI/mobile.html?lang=en). You can revise views, switch datasets, inspect commit provenance, add a library panel, review permissions, create a confirmed local note, and export or reinstall the definition. Both demos support English and Simplified Chinese.
+The current experimental release, v0.3.0, includes a position paper, an executable draft specification, and two demonstrations: [UDI Studio for desktop](https://deepbule0.github.io/UDI/?lang=en) and [UDI Pocket for phones](https://deepbule0.github.io/UDI/mobile.html?lang=en). You can revise views, switch datasets, inspect commit provenance, add a library panel, review permissions, create a confirmed local note, and export or reinstall the definition. Both demos support English and Simplified Chinese.
+
+The Agent tab now offers conversation and settings-style controls over reviewed interface, source, and permission changes. Data management separates platform samples from browser-local personal JSON imports. Community can discover and install validated public GitHub posts, and prepare your own post for final submission on GitHub. Project starter examples are labeled separately from community activity. See the [community guide](COMMUNITY.md).
 
 UDI Pocket is an installable web app with card views, five bottom tabs, and offline use after the app shell is cached. It shares the Core 0.1 package and runtime; it does not provide a native store binary or device synchronization. See the [phone guide](MOBILE.md).
 

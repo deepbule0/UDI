@@ -14,7 +14,11 @@ Gate: another developer can run the demo, understand its limitations, and reprod
 
 Shipped: bilingual UDI Pocket with touch cards, five navigation tabs, install metadata, offline app-shell caching, and phone acceptance checks. It uses the same Core 0.1 definition and runtime as Studio. See the [phone guide](MOBILE.md). Native store binaries, cross-device synchronization, and real mobile connectors remain future work.
 
-## Next: validate the two hardest assumptions
+## v0.3: expose authoring, data ownership, and sharing
+
+Shipped: Agent chat plus settings-style controls with reviewed state changes, personal research JSON import/download/removal, and a lightweight GitHub Issues community with validated posts, preview/install/fork, and reviewed publication through the user's GitHub account. Starter examples are labeled as project examples. This does not establish community adoption, moderation, or general model capability. See [community and personal data](COMMUNITY.md).
+
+## Evaluation priorities
 
 1. Run a documented model evaluation on unseen user requests. Separate valid JSON from correct intent interpretation. Publish unsupported cases and failures.
 2. Ask people to reuse a package authored by someone else. Measure binding corrections, comprehension, and time to a useful workspace.

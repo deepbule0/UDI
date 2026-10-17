@@ -36,7 +36,15 @@ The app stores its state under `udi-studio:0.1` in browser local storage. Reset 
 
 The phone PWA's service worker is scoped to its deployment directory and caches the public build, including bundled fictional fixtures; it does not cache API responses or use the cache to store local grants, notes, or imported definitions. Those remain in local storage. Home Screen installation and offline availability add no authorization boundary. A cached build may remain older until updated, and browser storage can be cleared or evicted. Resetting the demo does not remove the service-worker cache; clearing site data removes local state and cached assets. The desktop and phone routes share state only within the same origin and storage context, and an iPhone Home Screen app is isolated from Safari. There is no device synchronization. See the [phone guide](docs/MOBILE.md).
 
-## Before production use
+## Community and personal data
+
+Community performs unauthenticated GET requests to the public repository's GitHub Issues API with credentials and referrer omitted. It accepts only marked, labeled, open posts containing one schema-valid JSON package, constructs links from the repository and issue number, and renders text without executing Markdown or HTML. A validated definition is still untrusted. Installation resets all instance grants. Public feed caches are separate from personal records and can be stale or unavailable under rate limits.
+
+Posting exports the definition into a reviewed GitHub composer URL, or a copy-and-paste body for large packages. No app-held GitHub credential is used, and opening a composer does not create a post. The person must sign in and submit on GitHub. Public free text and introductions still need human privacy review. Imported records, grants, notes, bindings, and chat history are not automatically sent to the community. User-authored free text can still contain private information.
+
+Personal JSON is strictly validated, assigned a fresh namespace, and stored as unencrypted browser-local records. Imports start without grants. Downloading personal data is a separate records-only operation. Confirmed removal deletes that dataset and its instance grants/notes; reset also clears imported records and the last 40 locally retained conversation messages. Chat prompts may themselves contain private text; the optional local-model bridge receives the submitted prompt and package definition, not an automatic dump of records or conversation history.
+
+## Production requirements
 
 A production system needs a credential-holding gateway, authenticated users, resource-scoped policy on every operation, adapter output validation, concurrency control, approval tokens bound to payload and expiry, idempotency for side effects, hardened content policies, export review, a package supply-chain model, and an independent security assessment. These are architectural requirements, not implemented features.
 

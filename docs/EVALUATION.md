@@ -12,7 +12,7 @@ Core tests cover invalid fields and versions, executable component rejection, du
 
 Browser acceptance covers review-before-apply, persistence, undo, dataset rebinding, denied rendering after revocation, explicitly granted and confirmed note creation, export/re-import with cleared grants, narrow-screen overflow, and a fixture-backed model response.
 
-The local verification run on October 17, 2026 passed 70 core/adapter/localization tests, 19 browser scenarios in Edge (ten desktop/localization and nine phone), three production PWA checks, 16 deterministic intent cases, three lifecycle invariants, TypeScript checks, and the production build. GitHub-hosted validation has not run successfully; see [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
+The local verification run on October 17, 2026 passed 133 core/adapter/localization/controller/data/community/session tests, 35 browser scenarios in Edge, three production PWA checks, 16 deterministic intent cases, three lifecycle invariants, TypeScript checks, and the production build. GitHub-hosted validation has not run successfully; see [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
 
 Phone checks use touch emulation at 390 × 844 and 430 × 932 pixels. They cover tab navigation, review/apply/undo, independent grants, language links, evidence-sheet focus, package transfer, and confirmed notes. Production checks verify valid PNG install icons, Chinese offline reopening with saved state, rejection of uncached API requests while offline, and preservation of unrelated origin caches. These are Chromium/Edge checks, not physical Android/iPhone installation tests or a Safari compatibility certification.
 
@@ -21,6 +21,8 @@ Localization checks cover English/Chinese URL selection, preference persistence,
 Two selected direct calls and one browser integration with a real local model also passed. Outputs, model digest, runtime and host metadata are in [model-smoke-results.json](model-smoke-results.json) and [bridge-smoke-results.json](bridge-smoke-results.json). Earlier empty outputs and an invalid panel reference are disclosed in [MODEL-OBSERVATIONS.md](MODEL-OBSERVATIONS.md). The prompt was refined during these attempts. These are development smoke observations, not held-out quality results.
 
 These checks provide evidence that the reference lifecycle works under selected conditions. They are not a security proof, accessibility certification, usability study, cross-runtime portability demonstration, or performance ranking. “Passed export checks” means structured fields and selected sentinel values are excluded; it does not mean arbitrary private text is detected.
+
+Agent checks cover reviewed chat/settings parity, concurrent-state staleness, request-only note creation, and minimization of optional model payloads. Personal-data checks cover strict JSON validation, fresh namespaces, permission-denied rendering before grants, reload, download, and confirmed removal. Community tests use mocked GitHub responses and a mocked composer to verify parsing, public-post discovery, installation grant resets, and privacy boundaries. They do not publish a real issue, establish community adoption, or claim end-to-end GitHub sign-in/submission testing.
 
 ## Proposed comparative evaluation
 

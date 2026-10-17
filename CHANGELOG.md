@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — 2026-10-17
+
+- Added a visible Agent tab with bilingual local conversation and a settings-style Controls view. Both review interface, binding, and capability changes against the same exact-state guard.
+- Added a public GitHub Issues community: validated discovery, search, preview, reviewed install/fork, and an explicit GitHub posting handoff. Project starter examples are labeled separately from real community posts.
+- Added personal research JSON import, separate local instances with empty initial grants, data download, and confirmed deletion alongside platform sample datasets.
+- Added session restoration for personal bindings and cross-tab refresh; reset clears personal imports and local conversation.
+- Updated English/Chinese documentation, screenshots, publication guidance, and regression tests. Core package schema remains `0.1`.
+
+The hosted assistant uses a bounded offline command grammar. Public posting requires a GitHub account and final submission on GitHub. No native music player, live personal-account connector, or autonomous publishing is implemented.
+
 ## 0.2.0 — 2026-10-17
 
 - Added UDI Pocket, an English/Chinese phone demo at `mobile.html`, with five touch navigation tabs and card-based views.
