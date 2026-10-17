@@ -50,7 +50,9 @@ Tag a validated release commit with a new version and publish release notes in b
 
 ## Publish the static demo with GitHub Pages
 
-The included Pages workflow runs only when manually dispatched. In repository Settings → Pages, choose GitHub Actions as the source. Run **Deploy demo to Pages** from Actions. The build uses a relative asset base so it works under a project subpath.
+The current Pages deployment uses the root of the `gh-pages` branch. That branch contains locally validated production assets and a `.nojekyll` marker; the editable source stays on `main`. Build and validate locally before updating those assets. The build uses a relative asset base so it works under the `/UDI/` project subpath.
+
+The included **Deploy demo to Pages** workflow is an alternative when GitHub-hosted Actions runners are available. To use it, change Settings → Pages to GitHub Actions and dispatch the workflow. Do not switch the live source unless that deployment path can complete. Branch publication does not replace the source-validation workflow or prove that CI ran.
 
 The public static demo uses the offline parser only. The optional local-model bridge runs in local development; do not expose it as a production API. Check actual [GitHub Actions runs](https://github.com/deepbule0/UDI/actions) for CI and deployment results, and verify deployment before reporting the demo as live.
 

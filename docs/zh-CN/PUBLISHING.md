@@ -51,7 +51,9 @@ git push -u github HEAD:main
 
 ## 通过 GitHub Pages 发布静态演示
 
-附带的 Pages 工作流仅在手动触发时运行。在仓库 Settings → Pages 中选择 GitHub Actions 作为来源，然后在 Actions 中运行 **Deploy demo to Pages**。构建使用相对资源基础路径，因此支持项目子路径。
+当前 Pages 部署以 `gh-pages` 分支的根目录为来源。该分支包含已在本地验证的生产构建文件和 `.nojekyll` 标记，可编辑源码保留在 `main` 分支。更新部署文件前应先在本地构建并完成验证。构建使用相对资源基础路径，支持 `/UDI/` 项目子路径。
+
+当 GitHub 托管的 Actions 运行器可用时，附带的 **Deploy demo to Pages** 工作流可作为另一种部署方式。使用时，在 Settings → Pages 中将来源改为 GitHub Actions，再手动触发工作流。只有确认该方式能够完成部署后，才应切换线上来源。分支发布不能替代源码校验工作流，也不能证明 CI 已运行。
 
 公开的静态演示仅使用离线解析器。可选的本地模型桥接服务用于本地开发，不应作为生产 API 对外暴露。请在 [GitHub Actions 运行记录](https://github.com/deepbule0/UDI/actions)中查看实际 CI 和部署结果，并在确认部署成功后再报告演示已上线。
 
