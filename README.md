@@ -8,7 +8,7 @@
 
 [Demo: English](https://deepbule0.github.io/UDI/?lang=en) · [演示：简体中文](https://deepbule0.github.io/UDI/?lang=zh-CN) · [Position paper](docs/POSITION-PAPER.md)
 
-[![Validate UDI](https://github.com/deepbule0/UDI/actions/workflows/ci.yml/badge.svg)](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)
+**Validation:** Local checks on October 17, 2026 passed 70 unit tests and 10 browser scenarios. GitHub-hosted validation has not run successfully. [Validation evidence](docs/EVALUATION.md) · [GitHub Actions status](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
 
 UDI is a proposal and reference prototype for persistent personal software. Users describe how they want to work; an agent proposes a structured interface definition; a runtime validates and renders it against locally bound data and explicitly granted capabilities.
 

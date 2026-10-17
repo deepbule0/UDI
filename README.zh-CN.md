@@ -8,7 +8,7 @@
 
 [演示：简体中文](https://deepbule0.github.io/UDI/?lang=zh-CN) · [Demo: English](https://deepbule0.github.io/UDI/?lang=en) · [阅读中文提案](docs/zh-CN/POSITION-PAPER.md)
 
-[![UDI 校验](https://github.com/deepbule0/UDI/actions/workflows/ci.yml/badge.svg)](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)
+**验证状态：** 2026 年 10 月 17 日的本地检查通过了 70 项单元测试和 10 个浏览器场景。GitHub 托管的验证尚未成功运行。[验证证据](docs/zh-CN/EVALUATION.md) · [GitHub Actions 状态](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)。
 
 UDI 是一项面向持久化个人软件的设计提案及参考原型。用户描述自己希望如何工作；智能体提出结构化的界面定义；运行时对定义进行校验，并结合当前实例绑定的数据和明确授予的能力，将其渲染为可用界面。
 
