@@ -1,5 +1,7 @@
 # UDI Core 0.1: package and runtime contract
 
+**English** | [简体中文](zh-CN/SPECIFICATION.md)
+
 **Status:** experimental draft. The JSON Schema and reference validator define the implemented subset. This document uses MUST/SHOULD as project requirements, not as evidence of standards-body adoption.
 
 ## 1. Artifacts and versions

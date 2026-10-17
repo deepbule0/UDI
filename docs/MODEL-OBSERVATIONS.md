@@ -1,5 +1,7 @@
 # Local-model observations
 
+**English** | [简体中文](zh-CN/MODEL-OBSERVATIONS.md)
+
 These are development smoke observations on fictional data, not held-out evaluation results. The model and machine details are recorded in [model-smoke-results.json](model-smoke-results.json).
 
 1. The first two direct model calls returned no parseable JSON with the initial generation settings. Those failures are retained in [model-smoke-initial-failure.json](model-smoke-initial-failure.json). The installed model advertises thinking support. Explicitly disabling thinking in the bounded structured-output call resolved these cases; this observation alone does not identify every cause of empty output.

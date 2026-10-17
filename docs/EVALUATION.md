@@ -1,5 +1,7 @@
 # Evaluation: evidence and open questions
 
+**English** | [简体中文](zh-CN/EVALUATION.md)
+
 ## What the current checks establish
 
 `npm run check` runs TypeScript validation, core/adapter unit tests, and a production build. `npm run test:e2e` exercises the browser lifecycle. `npm run evaluate` writes [evaluation-results.json](evaluation-results.json) from the public [case set](../eval/cases.json).
@@ -10,7 +12,9 @@ Core tests cover invalid fields and versions, executable component rejection, du
 
 Browser acceptance covers review-before-apply, persistence, undo, dataset rebinding, denied rendering after revocation, explicitly granted and confirmed note creation, export/re-import with cleared grants, narrow-screen overflow, and a fixture-backed model response.
 
-The local verification run on October 17, 2026 passed 47 core/adapter tests, five browser scenarios in Edge, 16 deterministic intent cases, three lifecycle invariants, TypeScript checks, and the production build. The included CI workflow has not yet run on GitHub.
+The local verification run on October 17, 2026 passed 70 core/adapter/localization tests, ten browser scenarios in Edge, 16 deterministic intent cases, three lifecycle invariants, TypeScript checks, and the production build. Current GitHub CI results are available in [Actions](https://github.com/deepbule0/UDI/actions/workflows/ci.yml).
+
+Localization checks cover English/Chinese URL selection, preference persistence, Chinese intent review, unsupported compound requests, narrow-screen controls, and identical package/instance state before and after a language switch. Export retains the canonical machine definition rather than serializing translated presentation labels.
 
 Two selected direct calls and one browser integration with a real local model also passed. Outputs, model digest, runtime and host metadata are in [model-smoke-results.json](model-smoke-results.json) and [bridge-smoke-results.json](bridge-smoke-results.json). Earlier empty outputs and an invalid panel reference are disclosed in [MODEL-OBSERVATIONS.md](MODEL-OBSERVATIONS.md). The prompt was refined during these attempts. These are development smoke observations, not held-out quality results.
 

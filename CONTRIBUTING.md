@@ -1,5 +1,7 @@
 # Contributing to UDI
 
+**English** | [简体中文](docs/zh-CN/CONTRIBUTING.md)
+
 The most useful contributions test the idea, clarify a boundary, or make the reference lifecycle more reliable. Small changes with a concrete task are easier to evaluate than broad new abstractions.
 
 ## Development

@@ -3,9 +3,31 @@ import type { Capability, Operation, Proposal, UDISpec } from './types';
 
 export const suggestedIntents = ['Show only failed experiments', 'Group experiments by model', 'Add related papers', 'Focus on experiments', 'Add a review-note action'];
 
+// Exact aliases keep Chinese inputs within the same bounded operation grammar.
+// They do not infer additional operations or silently accept compound requests.
+const chineseIntents: Record<string, string> = {
+  '只显示失败实验': 'show only failed experiments', '只显示失败的实验': 'show only failed experiments',
+  '显示失败实验': 'show only failed experiments', '显示失败的实验': 'show only failed experiments',
+  '显示全部实验': 'show all experiments', '显示所有实验': 'show all experiments', '清除筛选': 'clear filter',
+  '按模型分组实验': 'group experiments by model', '按模型分组': 'group experiments by model',
+  '取消实验分组': 'ungroup experiments', '取消分组': 'remove grouping',
+  '添加相关论文': 'add related papers', '显示相关论文': 'show related papers', '添加论文': 'add papers', '显示论文': 'show papers',
+  '聚焦实验': 'focus on experiments', '使用紧凑布局': 'use a compact layout',
+  '使用均衡布局': 'use a balanced layout', '恢复均衡布局': 'use a balanced layout', '重置布局': 'reset layout',
+  '隐藏截止日期': 'hide deadlines', '显示截止日期': 'show deadlines',
+  '添加审阅笔记操作': 'add a review-note action', '添加审阅笔记按钮': 'add a review-note action',
+};
+
+function normalizeIntent(intent: string): string {
+  const text = intent.trim().toLowerCase().replace(/[.!?。！？]+$/, '').trim();
+  if (Object.hasOwn(chineseIntents, text)) return chineseIntents[text];
+  const threshold = text.match(/^(?:高亮|突出显示)回退(?:超过|大于)\s*(\d+(?:\.\d+)?)\s*db\s*(?:的实验)?$/);
+  return threshold ? `highlight regressions over ${threshold[1]} db` : text;
+}
+
 // A deliberately bounded, offline planner. No LLM or external request is hidden here.
 export function planIntent(intent: string, spec: UDISpec, revision: number): Proposal {
-  const text = intent.trim().toLowerCase().replace(/[.!?]+$/, '');
+  const text = normalizeIntent(intent);
   const operations: Operation[] = [];
   let summary = '';
   if (/^(show (only )?failed experiments|filter (to )?failed experiments)$/.test(text)) { operations.push({ op: 'filter', value: 'failed' }); summary = 'Show failed experiments in the experiment table.'; }

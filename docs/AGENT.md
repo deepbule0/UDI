@@ -1,5 +1,7 @@
 # Optional local-model planner
 
+**English** | [简体中文](zh-CN/AGENT.md)
+
 The default demo works without a model. This optional development bridge lets a locally installed Ollama model translate natural-language edits into the same bounded operation vocabulary.
 
 ## Run it

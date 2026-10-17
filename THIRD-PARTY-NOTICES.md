@@ -1,5 +1,7 @@
 # Third-party notices
 
+**English** | [简体中文](docs/zh-CN/THIRD-PARTY-NOTICES.md)
+
 This project's original code and documentation use the MIT License. Dependencies retain their own licenses. The lockfile records the dependency versions used for the reference build.
 
 - React and React DOM: Meta and contributors, MIT.

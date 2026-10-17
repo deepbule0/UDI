@@ -1,5 +1,7 @@
 # User-Defined Interfaces: reusable personal software through agent-mediated definitions
 
+**English** | [简体中文](zh-CN/POSITION-PAPER.md)
+
 **Position paper · version 0.1 · October 17, 2026**
 
 ## Abstract

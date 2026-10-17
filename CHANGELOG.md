@@ -4,6 +4,8 @@
 
 Initial experimental proposal and reference prototype.
 
+- Added English and Simplified Chinese documentation, a bilingual demo, and supported Chinese offline intents.
+
 - Added the UDI package–instance lifecycle, position paper, and related-work analysis.
 - Added JSON Schemas, semantic validation, and a five-component React renderer.
 - Added reviewed bounded revisions, stale-base checks, undo, and browser persistence.

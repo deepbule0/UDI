@@ -1,5 +1,7 @@
 # Related work and positioning
 
+**English** | [简体中文](zh-CN/RELATED-WORK.md)
+
 Sources checked October 17, 2026. Descriptions below summarize each project's documented scope. They are not an exhaustive feature audit or a claim that a project cannot implement UDI-like workflows.
 
 ## End-user authoring and adaptive interfaces

@@ -1,8 +1,14 @@
 <img src="public/favicon.svg" width="52" alt="UDI mark" />
 
+**English** | [简体中文](README.zh-CN.md)
+
 # User-Defined Interface (UDI)
 
 **Software, defined by you.**
+
+[Demo: English](https://deepbule0.github.io/UDI/?lang=en) · [演示：简体中文](https://deepbule0.github.io/UDI/?lang=zh-CN) · [Position paper](docs/POSITION-PAPER.md)
+
+[![Validate UDI](https://github.com/deepbule0/UDI/actions/workflows/ci.yml/badge.svg)](https://github.com/deepbule0/UDI/actions/workflows/ci.yml)
 
 UDI is a proposal and reference prototype for persistent personal software. Users describe how they want to work; an agent proposes a structured interface definition; a runtime validates and renders it against locally bound data and explicitly granted capabilities.
 
@@ -19,11 +25,15 @@ The unit of reuse is an **interface package**, not a copy of someone's workspace
 Requires Node.js **22.12+** and npm.
 
 ```sh
+git clone https://github.com/deepbule0/UDI.git
+cd UDI
 npm ci
 npm run dev
 ```
 
 Open the local URL printed by Vite. No API key or account is needed. The default planner is a **limited deterministic intent parser**, clearly identified in the UI. Two fictional datasets are bundled; there are no live account connections. Fonts are served with the app.
+
+Use the **EN / 中文** language switch in the demo. Language changes affect presentation, not the package definition, data binding, or granted capabilities. The offline parser accepts both English and supported Chinese intents.
 
 An optional [Ollama bridge](docs/AGENT.md) lets a locally installed model propose operations through the same validation and review path. Two real-model smoke cases and one browser integration case passed on the recorded local setup. These selected development examples do not establish general model quality; [failures and observations](docs/MODEL-OBSERVATIONS.md) are documented too.
 

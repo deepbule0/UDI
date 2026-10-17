@@ -1,5 +1,7 @@
 # Security model and limitations
 
+**English** | [简体中文](docs/zh-CN/SECURITY.md)
+
 UDI Studio is a research prototype running on fictional fixtures. Do not connect sensitive services to this browser policy layer or treat its controls as production authorization.
 
 ## Assets and trust boundaries

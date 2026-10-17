@@ -1,5 +1,7 @@
 # Introducing UDI: software, defined by you
 
+**English** | [简体中文](zh-CN/ANNOUNCEMENT.md)
+
 What should happen after an AI generates an interface?
 
 The result should be something you can keep, understand, change, and reuse with your own data. That question is the starting point for **User-Defined Interface (UDI)**.
