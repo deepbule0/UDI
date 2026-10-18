@@ -1,8 +1,8 @@
 /* UDI Pocket: cache the public app shell only, never API responses or private records. */
 const BASE = new URL(self.registration.scope);
 const PREFIX = 'udi-pocket:' + BASE.pathname + ':';
-const CACHE = PREFIX + "bfdcfe197d2b1d29";
-const FILES = ["./assets/desktop-4zgBKAbV.js","./assets/mobile-5rp7ycaO.js","./assets/session-Dgre7WVF.js","./assets/desktop-vEfTTywj.css","./assets/dm-sans-latin-ext-wght-normal-BOFOeGcA.woff2","./assets/dm-sans-latin-wght-normal-Xz1IZZA0.woff2","./assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2","./assets/manrope-greek-wght-normal-DL7QRZyv.woff2","./assets/manrope-latin-ext-wght-normal-Ch3YOpNY.woff2","./assets/manrope-latin-wght-normal-DHIcAJRg.woff2","./assets/manrope-vietnamese-wght-normal-usUDDRr7.woff2","./assets/mobile-DIWNm2ha.css","./assets/session-xprtnBH6.css","./index.html","./mobile.html","./manifest.webmanifest","./favicon.svg","./icons/icon-192.png","./icons/icon-512.png","./icons/maskable-512.png","./icons/apple-touch-icon.png"];
+const CACHE = PREFIX + "5dccff704515a4e5";
+const FILES = ["./assets/desktop-B-Jlp_C9.js","./assets/mobile-COuF3fm7.js","./assets/session-DbUJ-DNH.js","./assets/desktop-BYpVVQM0.css","./assets/dm-sans-latin-ext-wght-normal-BOFOeGcA.woff2","./assets/dm-sans-latin-wght-normal-Xz1IZZA0.woff2","./assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2","./assets/manrope-greek-wght-normal-DL7QRZyv.woff2","./assets/manrope-latin-ext-wght-normal-Ch3YOpNY.woff2","./assets/manrope-latin-wght-normal-DHIcAJRg.woff2","./assets/manrope-vietnamese-wght-normal-usUDDRr7.woff2","./assets/mobile-DDOrYfcb.css","./assets/session-h9B8kPub.css","./index.html","./mobile.html","./manifest.webmanifest","./favicon.svg","./icons/icon-192.png","./icons/icon-512.png","./icons/maskable-512.png","./icons/apple-touch-icon.png"];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES.map(file => new Request(new URL(file, BASE), { cache: 'reload' })))));
 });
