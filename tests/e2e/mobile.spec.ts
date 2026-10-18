@@ -16,6 +16,7 @@ async function navigate(page: Page, name: string) {
   const button = phoneNavigation(page).getByRole('button', { name, exact: true });
   await button.tap();
   await expect(button).toHaveAttribute('aria-current', 'page');
+  if (name === 'Data') await page.getByText('Advanced access details', { exact: true }).tap();
 }
 async function noHorizontalOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -113,6 +114,7 @@ test('phone language links override saved preferences without changing the local
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('你的研究，');
   await page.getByRole('navigation', { name: '手机导航' }).getByRole('button', { name: '数据', exact: true }).tap();
+  await page.getByText('高级权限详情', { exact: true }).tap();
   await page.getByRole('switch', { name: '读取关联提交', exact: true }).tap();
   const before = await session(page);
   await page.getByRole('button', { name: 'English', exact: true }).tap();
@@ -155,7 +157,7 @@ test('phone exports only a definition and imports require fresh grants for both 
   await page.goto('/mobile.html?lang=en');
   const definition = (await session(page)).spec;
   await navigate(page, 'Community');
-  await page.getByText('Local package tools', { exact: true }).tap();
+  await page.getByText('Advanced interface tools', { exact: true }).tap();
   await page.getByRole('button', { name: 'Export package', exact: true }).tap();
   const exportedDialog = page.getByRole('dialog', { name: 'Export interface package', exact: true });
   await expect(exportedDialog).toContainText('Record payloads, grants, and bindings excluded');
@@ -175,6 +177,8 @@ test('phone exports only a definition and imports require fresh grants for both 
   expect((await session(page)).instances.aurora.grants).toContain('experiments.read');
   await importedDialog.getByRole('button', { name: 'Install & review data access', exact: true }).tap();
   await expect(importedDialog).toHaveCount(0);
+  await page.getByText('Advanced access details', { exact: true }).tap();
+  expect(await page.getByRole('switch').count()).toBeGreaterThan(0);
   for (const toggle of await page.getByRole('switch').all()) await expect(toggle).toHaveAttribute('aria-checked', 'false');
   const installed = await session(page);
   expect(installed.spec).toEqual(definition);
@@ -194,10 +198,11 @@ test('phone note creation needs a grant and a separate exact-write confirmation'
   await page.goto('/mobile.html?lang=en');
   await navigate(page, 'Agent');
   await page.getByRole('button', { name: /Add a review-note action$/ }).tap();
-  await expect(page.getByRole('region', { name: 'Proposed revision' })).toContainText('notes.write');
+  await expect(page.getByRole('region', { name: 'Proposed revision' })).toContainText('Create local review notes');
   await page.getByRole('button', { name: 'Apply change', exact: true }).tap();
   await page.getByRole('button', { name: 'Create review note', exact: true }).tap();
   await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.getByText('Advanced access details', { exact: true }).tap();
   const writeGrant = page.getByRole('switch', { name: 'Create local review notes', exact: true });
   await expect(writeGrant).toHaveAttribute('aria-checked', 'false');
   await writeGrant.tap();
@@ -213,6 +218,7 @@ test('phone note creation needs a grant and a separate exact-write confirmation'
   const after = await session(page);
   expect(after.instances.aurora.notes).toHaveLength(1);
   expect(after.instances.atlas.notes).toHaveLength(0);
+  await page.getByText('Advanced access details', { exact: true }).tap();
   await expect(page.getByRole('heading', { name: 'Local review notes', exact: true })).toBeVisible();
 });
 

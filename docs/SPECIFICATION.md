@@ -4,9 +4,17 @@
 
 **Status:** experimental draft. The JSON Schema and reference validator define the implemented subset. This document uses MUST/SHOULD as project requirements, not as evidence of standards-body adoption.
 
+The [general UDI framework](FRAMEWORK.md) describes reusable app experiences across domains. **Core 0.1 is the implemented research-workspace profile**, with a closed data/component/action vocabulary. Its JSON format is a runtime contract; ordinary people use previews, controls, and share links without editing that format. No music contract or general workflow language is implemented.
+
 ## 1. Artifacts and versions
 
-The desktop Studio and phone Pocket apps ship together as application v0.3.0 and implement this same Core 0.1 contract. The phone renders table definitions as cards; its installation metadata and offline cache are host features, not package fields. See [mobile behavior and storage](MOBILE.md).
+The desktop Studio and phone Pocket apps ship together as application v0.4.0 and implement this same Core 0.1 contract. The phone renders table definitions as cards; its installation metadata and offline cache are host features, not package fields. See [mobile behavior and storage](MOBILE.md).
+
+### Share-link envelope (application feature)
+
+The host can encode a strictly validated package in `#udi=v1.p.<base64url>` (plain UTF-8 bytes) or `#udi=v1.z.<base64url>` (deflate-compressed UTF-8 bytes). Creation retains only the current entry path and supported language query, strips URL credentials and unrelated query state, and caps the complete URL at 16,000 characters. Decoding caps the fragment at 16,000 characters, validates canonical base64url, bounds decompression to 65,536 bytes, rejects invalid UTF-8, and applies the same strict importer. Compression is chosen only where the browser supports both compression and decompression; receivers without decompression support reject compressed links visibly.
+
+The fragment carries only the package. Opening MUST remove the incoming fragment from the address and show a sample-data preview; it MUST NOT install, grant access, or execute an action. **Use this interface** revalidates the definition, preserves personal records/notes, clears grants for all local instances, and opens data selection. This envelope is a project-specific sharing mechanism, not an interoperable transport standard. Link sharing does not submit a public community post. See [community behavior](COMMUNITY.md).
 
 A package is one UTF-8 JSON document, conventionally named `name.udi.json`. The current `specVersion` MUST be `"0.1"`. `metadata.version` is a separate semantic-version-shaped package release string. The local revision counter is an instance editing mechanism and is not exported as a package release version.
 

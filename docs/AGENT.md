@@ -2,7 +2,9 @@
 
 **English** | [简体中文](zh-CN/AGENT.md)
 
-The default demo works without a model. This optional development bridge lets a locally installed Ollama model translate natural-language edits into the same bounded operation vocabulary.
+The [UDI framework](FRAMEWORK.md) treats the agent as one way for ordinary people to shape an app's presentation, supported interactions, and information handling. Direct controls are another path to the same persistent experience. The framework applies across app categories.
+
+The current research demo works without a model. Its hosted assistant recognizes a bounded command grammar; this is not general AI understanding. The optional development bridge below lets a locally installed Ollama model translate natural-language edits into the same bounded operation vocabulary.
 
 ## Agent and Controls
 
@@ -11,6 +13,8 @@ The default demo works without a model. This optional development bridge lets a 
 The **Agent** tab is available on desktop and phone. **Chat** keeps the last 40 conversation messages locally and prepares supported English/Chinese commands for review. **Controls** exposes layout, experiment filters, visible views, connected data sources, and requested capability grants in a settings layout. Both use the same controller and exact-state guard; changes apply only after **Apply change**.
 
 Examples: `Use Atlas lab`, `Revoke experiment access`, `Grant experiment access`, `只显示失败实验`, and `撤销实验访问权限`. Binding commands can use an imported source name or ID. Grants are per instance, and `notes.write` still requires a separate exact-note confirmation before a write. Undo restores a definition while preserving current bindings, grants, and notes. Unsupported requests do not change state. Clear the local conversation from the Agent panel. The hosted mode is labeled **Offline command assistant**, with no LLM.
+
+Proposal summaries and human-readable access labels appear first; operation JSON is under **Technical details**. Use **Personalize** on desktop to open Agent. On either device, **Share this interface** sends the resulting definition through a link, and a recipient previews before choosing **Use** and their own data access. Sharing does not include the conversation. **Create my workspace** in Data provides a simple first-entry form; file import remains in **Advanced data tools**. The agent cannot connect music accounts, build actual playlists, run background workflows, or publish posts autonomously. See [sharing and data](COMMUNITY.md).
 
 ## Run the optional model bridge
 

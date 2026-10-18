@@ -4,6 +4,16 @@
 
 UDI Studio is a research prototype running on fictional fixtures. Do not connect sensitive services to this browser policy layer or treat its controls as production authorization.
 
+The [general framework](docs/FRAMEWORK.md) defines a broader target. The current Core 0.1 research profile demonstrates boundaries locally; production provider integrations are not implemented.
+
+## Direct sharing and adoption
+
+Share/Copy link serializes only a strictly validated definition in a URL fragment, without uploading it to a UDI server. URL fragments are not part of ordinary HTTP requests, but browser extensions, page scripts, history, or a chosen sharing app may observe the link. Anyone holding it can decode public names, descriptions, and definition fields. Review free text; this mechanism provides no confidentiality, signature, author authentication, hosted short-link storage, or revocation service. Editing an experience later does not change a sent copy, and withdrawing a community post cannot recall copies.
+
+Creation excludes records, notes, binding IDs, grants, chat, and activity. Canonical base64url, a 16,000-character URL/fragment cap, bounded 64 KiB decompression, fatal UTF-8 decoding, strict schema validation, and semantic checks bound incoming definitions. The app removes an incoming definition fragment before asynchronous parsing. Opening a link shows public fictional sample records only; it does not apply changes or read private instances. Explicit **Use** revalidates the definition, preserves records and notes, clears every instance's grants, and opens data review. Preview actions are disabled. These controls do not authenticate the sender or prove a definition is useful.
+
+Native sharing and clipboard writes happen only after explicit user gestures. Link sharing is separate from public community listing. GitHub publication remains an advanced flow with a final human submission. **Create my workspace** stores validated research records locally with no initial grants; the explicit reading-consent button grants requested read capabilities only and never adds note-writing access.
+
 ## Assets and trust boundaries
 
 The assets are instance records, local notes, source bindings, grants, the integrity of a reviewed definition, and the integrity of an approved action. Untrusted inputs include imported packages, future model outputs, source content, and browser persistence. The host owns the component catalog and action handlers.

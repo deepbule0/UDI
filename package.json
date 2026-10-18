@@ -1,11 +1,16 @@
 {
   "name": "udi-studio",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
-  "repository": { "type": "git", "url": "git+https://github.com/deepbule0/UDI.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepbule0/UDI.git"
+  },
   "homepage": "https://deepbule0.github.io/UDI/",
-  "bugs": { "url": "https://github.com/deepbule0/UDI/issues" },
-  "description": "A reference prototype for portable, user-defined interfaces with local data bindings and reviewable revisions.",
+  "bugs": {
+    "url": "https://github.com/deepbule0/UDI/issues"
+  },
+  "description": "A draft framework and bilingual reference demos for persistent, user-shaped app experiences with personal data control and simple sharing.",
   "type": "module",
   "license": "MIT",
   "engines": {

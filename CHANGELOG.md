@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 — 2026-10-17
+
+- Formalized the general UDI framework: provider content and supported operations, persistent user-shaped presentation/interactions/information handling, personal-instance boundaries, proposed requirements, and explicit compatibility limits. The framework covers multiple app domains.
+- Added ordinary-user Share/Copy link with metadata review, visual recipient preview, explicit adoption, and fresh local access choices. No account, definition upload, or JSON is required for direct sharing.
+- Replaced technical community-first interactions with sample-data previews and Try/Use/personal-copy actions. Public GitHub listing and file tools remain advanced options.
+- Added a local workspace-entry form and explicit read consent; new workspaces start without grants and read consent never grants writing.
+- Aligned English/Chinese docs, app explanations, screenshots, and acceptance evidence. Core research schema remains `0.1`; the hosted assistant remains bounded and no live provider integration is added.
+
+
 ## 0.3.0 — 2026-10-17
 
 - Added a visible Agent tab with bilingual local conversation and a settings-style Controls view. Both review interface, binding, and capability changes against the same exact-state guard.

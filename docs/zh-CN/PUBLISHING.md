@@ -8,12 +8,12 @@
 
 - 仓库：[deepbule0/UDI](https://github.com/deepbule0/UDI)。
 - 演示部署目标：`https://deepbule0.github.io/UDI/`。
-- 英文描述：`A proposal for apps with agent-editable, shareable interfaces. Bilingual desktop/phone reference demos include chat/settings controls, personal data management, and community sharing.`
+- 英文描述：`A draft framework for user-shaped app experiences: AI and direct controls, personal data choices, and easy sharing. Bilingual desktop and phone research demos.`
 - 中文说明：`支持智能体编辑与界面分享的应用模型提案。中英双语桌面和手机参考演示提供对话与设置式控件、个人数据管理及社区分享。`
 - Topics：`ai-agents`、`chinese`、`declarative-ui`、`end-user-programming`、`generative-ui`、`human-computer-interaction`、`interface-sharing`、`personal-software`、`progressive-web-app`、`typescript`、`user-defined-interface`。
 - 已提供许可证：原创代码与文档使用 MIT；请项目所有者在发布前审阅。
 - 首个公开发布标签：`v0.1.0`。
-- 当前版本：`v0.3.0`；界面包格式仍为 Core `0.1`。
+- 当前版本：`v0.4.0`；界面包格式仍为 Core `0.1`。
 - 手机演示：`https://deepbule0.github.io/UDI/mobile.html`，通过 `?lang=zh-CN` 或 `?lang=en` 选择语言。
 
 添加作者元数据或引用文件时，请使用真实姓名和实际机构信息。项目没有虚构作者身份。发布者应为仓库配置私密安全报告渠道。
@@ -66,4 +66,4 @@ git push -u github HEAD:main
 
 ## 发布说明
 
-以 [ANNOUNCEMENT.md](ANNOUNCEMENT.md) 为起点。首先说明包与实例的分离，以及可复现的生命周期。如实描述解析器、连接器、可移植性和安全性。在没有实际评估的情况下，避免“首创”“新标准”“生产级安全”或暗示优越性的比较。
+以 [ANNOUNCEMENT.md](ANNOUNCEMENT.md) 为起点。先说明普通使用者的个性化、受支持的行为、数据选择与简单体验分享，再解释背后的界面包与实例分离。如实描述解析器、连接器、可移植性和安全性。在没有实际评估的情况下，避免“首创”“新标准”“生产级安全”或暗示优越性的比较。

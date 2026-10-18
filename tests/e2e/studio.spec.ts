@@ -21,27 +21,31 @@ test('review, apply, undo, persist and rebind a definition', async ({ page }) =>
 
 test('revocation affects rendering and write effects require an explicit grant and confirmation', async ({ page }) => {
   await page.getByRole('button', { name: 'Data & access', exact: true }).click();
+  await page.getByText('Advanced access details', { exact: true }).click();
   await page.getByRole('switch', { name: 'Read experiment results' }).click();
   await page.getByRole('button', { name: 'Workspace', exact: true }).click();
   await expect(page.getByRole('table')).toHaveCount(0);
   await page.getByRole('button', { name: 'Data & access', exact: true }).click();
+  await page.getByText('Advanced access details', { exact: true }).click();
   await page.getByRole('switch', { name: 'Read experiment results' }).click();
   await page.getByRole('button', { name: 'Workspace', exact: true }).click();
   await page.getByRole('button', { name: 'Add a review-note action' }).click();
   await page.getByRole('button', { name: 'Apply change' }).click();
   await page.getByRole('button', { name: 'Data & access', exact: true }).click();
+  await page.getByText('Advanced access details', { exact: true }).click();
   await page.getByRole('switch', { name: 'Create local review notes' }).click();
   await page.getByRole('button', { name: 'Workspace', exact: true }).click();
   await page.getByRole('button', { name: 'Create review note', exact: true }).click();
   await expect(page.getByRole('dialog')).toContainText('2 failed experiments');
   await page.getByRole('button', { name: 'Approve & create local note' }).click();
   await page.getByRole('button', { name: 'Data & access', exact: true }).click();
+  await page.getByText('Advanced access details', { exact: true }).click();
   await expect(page.getByText('Local review notes', { exact: true })).toBeVisible();
   await expect(page.locator('.saved-note')).toHaveCount(1);
 });
 
 test('export and import preserves the definition and clears grants', async ({ page }) => {
-  await page.getByRole('button', { name: 'Inspect spec' }).click();
+  await page.getByRole('button', { name: 'Advanced tools' }).click();
   await page.getByRole('button', { name: 'Export package', exact: true }).click();
   const downloadEvent = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Download .udi.json' }).click();
@@ -54,6 +58,8 @@ test('export and import preserves the definition and clears grants', async ({ pa
   await page.getByRole('textbox', { name: 'Package JSON' }).fill(text);
   await page.getByRole('button', { name: 'Validate package' }).click();
   await page.getByRole('button', { name: 'Install & review data access' }).click();
+  await page.getByText('Advanced access details', { exact: true }).click();
+  expect(await page.getByRole('switch').count()).toBeGreaterThan(0);
   for (const toggle of await page.getByRole('switch').all()) await expect(toggle).toHaveAttribute('aria-checked', 'false');
 });
 

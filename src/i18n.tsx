@@ -6,6 +6,14 @@ export const languageStorageKey = 'udi-studio:language';
 // Translate the host UI at render time. Package definitions, fixture records,
 // prepared write payloads, capability IDs, and bindings keep their original values.
 const chinese: Record<string, string> = {
+  'Agent chat and controls, visual previews, direct share links, simple workspace creation, independent access choices, and confirmed local notes.': '智能体对话与控件、可视预览、直接分享链接、简单创建工作空间、独立访问选择，以及确认后的本地笔记。',
+  'The hosted assistant uses supported offline commands. Local development supports an optional model. Platform samples are fictional; personal entries stay in this browser. Direct sharing uses links. Public listing is an advanced GitHub flow. Live provider accounts and background workflows are not implemented.': '托管助手使用支持范围内的离线指令，本地开发可选用模型。平台示例为虚构数据，个人录入保存在此浏览器。通过链接直接分享，公开上架属于高级 GitHub 流程。尚未实现真实平台账户和后台工作流。',
+  'The assistant supports bounded offline commands. Platform samples are fictional; personal entries stay in this browser. Share links need no account. Public listing uses an advanced GitHub flow. No hosted model or live provider account is connected.': '助手支持有限的离线指令。平台示例为虚构数据，个人录入保存在此浏览器。链接分享无需账户，公开上架使用高级 GitHub 流程。未连接托管模型或真实平台账户。',
+  'Advanced tools': '高级工具', 'Personalize': '按我的想法调整',
+  'Advanced access details': '高级权限详情', 'Technical details': '技术细节', 'Advanced interface tools': '高级界面工具',
+  'Choose your workspace and what this interface can use.': '选择工作空间，并决定这个界面可以使用哪些数据。',
+  'Choose what data your new interface can use.': '选择你的新界面可以使用哪些数据。',
+  'This interface link could not be opened. Your current interface is unchanged.': '无法打开此界面链接，当前界面未被更改。',
   'Agent': '智能体', 'Community': '社区', 'Personal data': '个人数据', 'Platform data': '平台数据', 'Personal source': '个人数据源', 'Platform fixture': '平台示例',
   'Agent chat and settings controls, reviewed revisions, personal-data import, independent grants, confirmed local notes, and community discovery and posting.': '智能体对话与设置控件、修订审核、个人数据导入、独立授权、确认后的本地笔记，以及社区发现与发布。',
   'The hosted assistant uses supported offline commands. Local development supports an optional Ollama model. Platform datasets are fictional; personal JSON imports stay in this browser. Community reads public GitHub posts; publishing requires a final submission on GitHub. Live data connectors and background workflows are not implemented.': '托管助手使用支持范围内的离线指令，本地开发可选用 Ollama 模型。平台数据集为虚构内容，个人 JSON 导入保存在此浏览器。社区读取公开 GitHub 帖子，发布时需在 GitHub 完成最终提交。尚未实现实时数据连接器和后台工作流。',

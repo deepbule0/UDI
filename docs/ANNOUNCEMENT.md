@@ -1,27 +1,33 @@
-# Introducing UDI: software, defined by you
+# Introducing UDI: your own way to use an app
 
 **English** | [简体中文](zh-CN/ANNOUNCEMENT.md)
 
-What should happen after an AI generates an interface?
+A platform can provide the content and functions without prescribing the same experience for everyone.
 
-The result should be something you can keep, understand, change, and reuse with your own data. That question is the starting point for **User-Defined Interface (UDI)**.
+**User-Defined Interface (UDI)** is a framework in which the platform supplies useful content, supported operations, and a good default app, while people shape their own way of using it through an agent or familiar controls. They can change presentation, interactions, data organization, and supported workflows, then share the resulting experience as easily as a link.
 
-UDI separates a reusable interface package from a personal instance. The package describes views, logical data sources, capability requests, and supported actions. The instance supplies its own bindings, grants, records, and history. An agent proposes revisions; a deterministic runtime validates them; the user reviews meaningful changes and approves effects.
+Illustrative domains include study, reading, travel, photos, productivity, and music. A reading service could offer a topic-based view, a travel tool a daily itinerary, or a music service a combined album-and-queue view. Each provider would define the content and operations it supports. These examples illustrate possible applications; the integrations are not implemented here.
 
-A UDI-enabled app can supply its data, supported capabilities, and a usable default interface. People can then reshape it through Agent chat or ordinary controls, or start from a community-shared definition. The [music-app example](EXAMPLES.md) illustrates this broader proposal: a provider supplies audio and playback functions, while people adapt the player to their own library and preferences. Audio playback is not implemented in the current research demo.
+The useful unit of sharing is a **reusable experience**: how the app looks and works within the provider's supported scope. The receiving person uses their own data and permissions. Ordinary users should not need to program, call APIs, upload a JSON interface, or understand a package format to participate.
 
-The current experimental release, v0.3.0, includes a position paper, an executable draft specification, and two demonstrations: [UDI Studio for desktop](https://deepbule0.github.io/UDI/?lang=en) and [UDI Pocket for phones](https://deepbule0.github.io/UDI/mobile.html?lang=en). You can revise views, switch datasets, inspect commit provenance, add a library panel, review permissions, create a confirmed local note, and export or reinstall the definition. Both demos support English and Simplified Chinese.
+The experimental **v0.4.0** application brings that consumer path to the reference demo:
 
-The Agent tab now offers conversation and settings-style controls over reviewed interface, source, and permission changes. Data management separates platform samples from browser-local personal JSON imports. Community can discover and install validated public GitHub posts, and prepare your own post for final submission on GitHub. Project starter examples are labeled separately from community activity. See the [community guide](COMMUNITY.md).
+1. **Try** an interface through a visual preview using fictional sample data.
+2. **Use** the interface explicitly.
+3. **Choose a workspace and consent** to the data access it needs. A personal research workspace can be created with a form.
+4. **Personalize** through Agent chat or settings-style controls.
+5. **Share a link** so another person can preview and use their own copy.
 
-UDI Pocket is an installable web app with card views, five bottom tabs, and offline use after the app shell is cached. It shares the Core 0.1 package and runtime; it does not provide a native store binary or device synchronization. See the [phone guide](MOBILE.md).
+Try [UDI Studio for desktop](https://deepbule0.github.io/UDI/?lang=en) or [UDI Pocket for phones](https://deepbule0.github.io/UDI/mobile.html?lang=en). Both support English and Simplified Chinese. Pocket can be installed as a web app and used offline after its app shell is cached; it is not a native app-store binary or a device-sync service. See the [phone guide](MOBILE.md).
 
-It is deliberately small. The default planner uses a limited offline grammar, the data is fictional, and browser permission checks are a demonstration rather than production authorization. An optional local Ollama bridge is available for experimenting with model-generated operations.
+Discovery distinguishes UDI project examples from real public community posts. Sharing a link needs no account or file upload. Public listing in this prototype still uses a reviewed GitHub handoff under **Advanced publishing**; technical package import/export remains available under advanced tools. See the [community guide](COMMUNITY.md).
 
-UDI builds on prior work in end-user programming, adaptive interfaces, and generative UI. A2UI, AG-UI, MCP Apps, and json-render are relevant foundations, not projects this prototype claims to replace. The proposal focuses on making the lifecycle around a generated interface explicit and testable.
+Behind the interaction, a reusable definition is separated from a private instance containing data bindings, grants, records, notes, and activity. An agent proposes bounded changes; the host validates the result and mediates access and effects. Shared names and descriptions still need review because they may contain personal text.
 
-The name also has history: Wixon and colleagues used “user-defined interface” and “UDI” in CHI 1983. This project adapts that term to the architecture described here and makes no claim to have coined it.
+The **general framework** is broader than the demo. The application implements only the **Core 0.1 research profile**: experiment views, filtering and grouping, a research library, deadlines, local workspaces, and confirmed local review notes. It does not implement music playback, real provider connectors, or a general workflow engine. Hosted chat uses a small deterministic command grammar, not a hosted language model; an optional local Ollama bridge can propose the same supported operations.
 
-I’m sharing this as an experimental idea and working reference, and I welcome criticism of the assumptions as much as code contributions. The first questions are practical: can people revise these tools reliably, and can someone else's definition become useful with your data?
+UDI is a draft design framework with a working reference, not a ratified standard or demonstrated compatibility layer across applications. The [framework document](FRAMEWORK.md), [position paper](POSITION-PAPER.md), and [research-profile specification](SPECIFICATION.md) make those levels and boundaries explicit.
 
-Run the demo, inspect the package, and try to break the boundaries. The most useful next contributions are a versioned renderer adapter, one properly scoped connector, reproducible model evaluations, and user studies of package transfer.
+It builds on end-user programming, adaptive interfaces, and generative UI. A2UI, AG-UI, MCP Apps, and json-render provide relevant foundations, not projects this prototype claims to replace. The name has history too: Wixon and colleagues used “user-defined interface” and “UDI” in CHI 1983. This project does not claim to have coined that terminology; see [related work](RELATED-WORK.md).
+
+The next questions need evidence: can ordinary people adapt and reuse an experience reliably, understand its access, and complete useful tasks with less assistance? Contributions toward a real provider adapter, a versioned renderer adapter, reproducible model evaluations, and end-user studies will help answer them. The [roadmap](ROADMAP.md) describes those decision gates.

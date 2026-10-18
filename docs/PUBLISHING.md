@@ -8,11 +8,11 @@ The public repository is [deepbule0/UDI](https://github.com/deepbule0/UDI). It i
 
 - Repository: `https://github.com/deepbule0/UDI`.
 - Demo deployment target: `https://deepbule0.github.io/UDI/`.
-- Description: `A proposal for apps with agent-editable, shareable interfaces. Bilingual desktop/phone reference demos include chat/settings controls, personal data management, and community sharing.`
+- Description: `A draft framework for user-shaped app experiences: AI and direct controls, personal data choices, and easy sharing. Bilingual desktop and phone research demos.`
 - Topics: `ai-agents`, `chinese`, `declarative-ui`, `end-user-programming`, `generative-ui`, `human-computer-interaction`, `interface-sharing`, `personal-software`, `progressive-web-app`, `typescript`, `user-defined-interface`.
 - License supplied: MIT for original code/documentation; review it as the project owner before publication.
 - Initial public release tag: `v0.1.0`.
-- Current release: `v0.3.0`; package schema remains Core `0.1`.
+- Current release: `v0.4.0`; package schema remains Core `0.1`.
 - Phone demo: `https://deepbule0.github.io/UDI/mobile.html`, with `?lang=en` or `?lang=zh-CN`.
 
 Use your own name and actual affiliations when adding author metadata or a citation file. No author identity has been fabricated. Configure a private security-reporting channel when the repository is created.
@@ -65,4 +65,4 @@ The `udi-interface` repository label and `.github/ISSUE_TEMPLATE/share-interface
 
 ## Release message
 
-Use [ANNOUNCEMENT.md](ANNOUNCEMENT.md) as a starting point. Lead with the package–instance separation and the reproducible lifecycle. Describe the parser, connectors, portability, and security honestly. Avoid “first,” “new standard,” “production secure,” or comparisons implying superiority without an actual evaluation.
+Use [ANNOUNCEMENT.md](ANNOUNCEMENT.md) as a starting point. Lead with ordinary-user personalization, supported behavior, data choices, and simple experience sharing; explain the package–instance separation as its implementation. Describe the parser, connectors, portability, and security honestly. Avoid “first,” “new standard,” “production secure,” or comparisons implying superiority without an actual evaluation.

@@ -22,6 +22,7 @@ test('direct language links override storage and switching preserves the URL on 
 test('language persists while definitions, data bindings, grants and revision remain unchanged', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Local dataset' }).selectOption('atlas');
   await page.getByRole('button', { name: 'Data & access', exact: true }).click();
+  await page.getByText('Advanced access details', { exact: true }).click();
   await page.getByRole('switch', { name: 'Read linked commits' }).click();
   const before = await page.evaluate(() => localStorage.getItem('udi-studio:0.1'));
   await page.getByRole('button', { name: '简体中文', exact: true }).click();
@@ -66,8 +67,9 @@ test('Chinese UI exports the original machine definition and requests write gran
   await page.getByRole('button', { name: '应用更改', exact: true }).click();
   await page.getByRole('button', { name: '创建审阅笔记', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('需要授权：notes.write');
+  await page.getByText('高级权限详情', { exact: true }).click();
   await expect(page.getByRole('switch', { name: '创建本地审阅笔记' })).toHaveAttribute('aria-checked', 'false');
-  await page.getByRole('button', { name: '界面包', exact: true }).click();
+  await page.getByRole('button', { name: '高级工具', exact: true }).click();
   await page.getByRole('button', { name: '导出界面包', exact: true }).click();
   await expect(page.getByRole('dialog', { name: '导出界面包' })).toContainText('不包含记录内容、授权和绑定');
   const downloadEvent = page.waitForEvent('download');
